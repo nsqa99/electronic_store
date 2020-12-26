@@ -5,13 +5,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnect {
+	private static DBConnect dbConnect;
 	private final String dbName = "webdt";
 	private final String dbUrl = "jdbc:mysql://localhost:3306/" + dbName;
 	private final String dbUsn = "nsqa";
 	private final String dbPw = "123456";
 	private Connection conn;
 
-	public DBConnect() {
+	private DBConnect() {
 		// TODO Auto-generated constructor stub
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -23,6 +24,13 @@ public class DBConnect {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public static DBConnect getInstance() {
+		if (dbConnect == null) {
+			dbConnect = new DBConnect();
+		}
+		return dbConnect;
 	}
 
 	public Connection getConnection() {

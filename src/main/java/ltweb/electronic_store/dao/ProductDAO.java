@@ -13,7 +13,7 @@ import ltweb.electronic_store.utils.ProductConverter;
 
 public class ProductDAO {
 	private Connection conn;
-	private DBConnect db = new DBConnect();
+	private DBConnect db = DBConnect.getInstance();
 
 	public ProductDAO() {
 		this.conn = db.getConnection();
