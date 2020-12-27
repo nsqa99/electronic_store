@@ -53,8 +53,6 @@
     width: 100%;
 }
 ._1sanpham{
-    float: left;
-    position: relative;
     overflow: hidden;
     cursor: pointer;
     background: #fff;
@@ -110,7 +108,7 @@ a{
 
 .pagination {
     display: inline-block;
-    margin-top: 20%;
+    margin-top: 10%;
     margin-bottom: 5%;
   }
   
@@ -129,3 +127,4 @@ a{
 }
   
 .pagination a:hover:not(.active) {background-color: #ddd;}
+

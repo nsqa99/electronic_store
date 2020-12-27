@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.GenericType;
@@ -30,9 +31,18 @@ public class SearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
 		String name = request.getParameter("nameP");
-		String searchUrl = URLs.baseUrl + URLs.searchPath + "?name=" + name.replace(" ", "+") + "&page=1" + "&size="
-				+ Integer.toString(Settings.PAGE_SIZE);
+		session.setAttribute("nameQuery", name);
+		String pageStr = request.getParameter("page");
+		int page;
+		if (pageStr == null)
+			page = 1;
+		else
+			page = Integer.parseInt(pageStr);
+		session.setAttribute("page", page);
+		String searchUrl = URLs.baseUrl + URLs.searchPath + "?name=" + name.replace(" ", "+") + "&page="
+				+ Integer.toString(page) + "&size=" + Integer.toString(Settings.PAGE_SIZE);
 		ArrayList<Product> products = new ArrayList<>();
 		Client client = ClientBuilder.newClient();
 		Response res = client.target(searchUrl).request(MediaType.APPLICATION_JSON).get();
@@ -41,7 +51,11 @@ public class SearchServlet extends HttpServlet {
 			});
 		}
 
-		request.getSession().setAttribute("products", products);
+		if (session.getAttribute("total") == null) {
+			int total = Integer.parseInt(res.getHeaderString("X-Total-Count"));
+			session.setAttribute("total", total);
+		}
+		session.setAttribute("products", products);
 		request.getRequestDispatcher("dssp.jsp").forward(request, response);
 	}
 

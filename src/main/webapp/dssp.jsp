@@ -1,3 +1,4 @@
+<%@page import="ltweb.electronic_store.contants.URLs"%>
 <%@page import="ltweb.electronic_store.contants.Settings"%>
 <%@page import="ltweb.electronic_store.model.Product"%>
 <%@page import="java.util.ArrayList"%>
@@ -20,11 +21,14 @@
             </form>
         </div>
         <% ArrayList<Product> products = (ArrayList<Product>) request.getSession().getAttribute("products");
+        	int total = (int) request.getSession().getAttribute("total");
+        	//System.out.println("total: " + total);
         	if (products != null) {
         		
 	        	if (products.size() == 0) { %>
 	        		
-	        	<% } else { System.out.println("size" + products.size() + "query size" + Settings.PAGE_SIZE); %>
+	        	<% } else { 
+	        		//System.out.println("size" + products.size() + "query size" + Settings.PAGE_SIZE); %>
 	        		<div class="dssp">
 			        	<% 
 			        		for(Product product: products) {
@@ -40,20 +44,40 @@
 					          
 			        	<% } %>
 	        		</div>
-	        	<% if(products.size() > Settings.PAGE_SIZE) {
+	        	<% 
+	        		int currentPage = (int) request.getSession().getAttribute("page");
+	        		//System.out.print("current " + currentPage);
+	        		String nameQuery = (String) request.getSession().getAttribute("nameQuery");
+	        		if (nameQuery == null) nameQuery = "";
+	        		nameQuery = nameQuery.replace(" ", "+"); 
 	        		
 	        		%>
 		        	<div class="pagination">
-		        		<a href="#">&laquo;</a>
-		        		<a class="active" href="#">1</a>
-		        		<% for(int i=1; i<products.size() / Settings.PAGE_SIZE; i++) { %>
-				    		<a href="#"><%= i + 1 %></a>
-				       	<% } %>
-				        <a href="#">&raquo;</a>
+		        		
+		        	  <%
+		        	  	
+		        	  	for(int i=1; i<=Math.ceil((double)total/(double)Settings.PAGE_SIZE); i++) {
+		        			if(currentPage == i) {%>
+		        				<a 
+		        				class="active"
+				        	  	id="page<%=i %>"
+				        		href="<%=URLs.searchUrl%><%=nameQuery%>&page=<%=i %>&size=<%=Settings.PAGE_SIZE%>">
+				        		<%=i %>
+				        		</a> 
+		        			<%} else { %>
+				        	  	<a 
+				        	  	id="page<%=i %>"
+				        		href="<%=URLs.searchUrl%><%=nameQuery%>&page=<%=i %>&size=<%=Settings.PAGE_SIZE%>">
+				        		<%=i %>
+				        		</a> 
+		        		<%} %>
+		        	  <% } %>
+		        	  
 				    </div>  
-			    <% } %>
+			    
 	        <% } %>
-	       <% } %>
+	  <% } %>
+	       
     </div>
 </body>
 </html>

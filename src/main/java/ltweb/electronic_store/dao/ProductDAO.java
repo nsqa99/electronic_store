@@ -62,9 +62,11 @@ public class ProductDAO {
 
 	public ArrayList<Product> getByNamePagin(String name, int page, int size) {
 		ArrayList<Product> products = getByName(name);
+		int start = (page - 1) * size;
+		int end = page * size > products.size() ? products.size() : page * size;
 		if (products.size() <= size)
 			return products;
-		return new ArrayList(products.subList(page - 1, page + size - 1));
+		return new ArrayList(products.subList(start, end));
 	}
 
 }
