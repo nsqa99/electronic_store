@@ -1,3 +1,4 @@
+<%@page import="ltweb.electronic_store.contants.Settings"%>
 <%@page import="ltweb.electronic_store.model.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -23,7 +24,7 @@
         		
 	        	if (products.size() == 0) { %>
 	        		
-	        	<% } else { %>
+	        	<% } else { System.out.println("size" + products.size() + "query size" + Settings.PAGE_SIZE); %>
 	        		<div class="dssp">
 			        	<% 
 			        		for(Product product: products) {
@@ -39,16 +40,18 @@
 					          
 			        	<% } %>
 	        		</div>
-	        	<div class="pagination">
-			            <a href="#">&laquo;</a>
-			            <a class="active" href="#">1</a>
-			            <a href="#">2</a>
-			            <a href="#">3</a>
-			            <a href="#">4</a>
-			            <a href="#">5</a>
-			            <a href="#">6</a>
-			            <a href="#">&raquo;</a>
-			       	</div>  
+	        	<% if(products.size() > Settings.PAGE_SIZE) {
+	        		
+	        		%>
+		        	<div class="pagination">
+		        		<a href="#">&laquo;</a>
+		        		<a class="active" href="#">1</a>
+		        		<% for(int i=1; i<products.size() / Settings.PAGE_SIZE; i++) { %>
+				    		<a href="#"><%= i + 1 %></a>
+				       	<% } %>
+				        <a href="#">&raquo;</a>
+				    </div>  
+			    <% } %>
 	        <% } %>
 	       <% } %>
     </div>

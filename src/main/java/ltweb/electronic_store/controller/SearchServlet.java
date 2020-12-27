@@ -13,6 +13,7 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import ltweb.electronic_store.contants.Settings;
 import ltweb.electronic_store.contants.URLs;
 import ltweb.electronic_store.model.Product;
 
@@ -30,10 +31,11 @@ public class SearchServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String name = request.getParameter("nameP");
+		String searchUrl = URLs.baseUrl + URLs.searchPath + "?name=" + name.replace(" ", "+") + "&page=1" + "&size="
+				+ Integer.toString(Settings.PAGE_SIZE);
 		ArrayList<Product> products = new ArrayList<>();
 		Client client = ClientBuilder.newClient();
-		Response res = client.target(URLs.baseUrl + URLs.searchPath + "?name=" + name.replace(" ", "+"))
-				.request(MediaType.APPLICATION_JSON).get();
+		Response res = client.target(searchUrl).request(MediaType.APPLICATION_JSON).get();
 		if (res.getStatus() != 400 && res.getStatus() != 500) {
 			products = res.readEntity(new GenericType<ArrayList<Product>>() {
 			});

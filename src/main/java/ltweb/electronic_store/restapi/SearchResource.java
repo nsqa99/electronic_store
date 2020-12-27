@@ -18,8 +18,16 @@ public class SearchResource {
 	private ProductDAO dao = new ProductDAO();
 
 	@GET
-	public Response searchAllByName(@QueryParam("name") String name) {
-		ArrayList<Product> products = dao.getByName(name);
+	public Response searchAllByName(@QueryParam("name") String name, @QueryParam("page") int page,
+			@QueryParam("size") int size) {
+		ArrayList<Product> products = new ArrayList<Product>();
+
+		if (page > 0 && size > 0) {
+			products = dao.getByNamePagin(name, page, size);
+		} else {
+			products = dao.getByName(name);
+		}
+
 		if (products != null) {
 			return Response.ok().entity(products).build();
 		} else {

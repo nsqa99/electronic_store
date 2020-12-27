@@ -35,6 +35,13 @@ public class ProductDAO {
 		return products;
 	}
 
+	public ArrayList<Product> getAllPagin(int page, int size) {
+		ArrayList<Product> products = getAll();
+		if (products.size() <= size)
+			return products;
+		return new ArrayList(products.subList(page - 1, page + size - 1));
+	}
+
 	public ArrayList<Product> getByName(String name) {
 		ArrayList<Product> products = new ArrayList<Product>();
 		// System.out.println(conn);
@@ -51,6 +58,13 @@ public class ProductDAO {
 		}
 
 		return products;
+	}
+
+	public ArrayList<Product> getByNamePagin(String name, int page, int size) {
+		ArrayList<Product> products = getByName(name);
+		if (products.size() <= size)
+			return products;
+		return new ArrayList(products.subList(page - 1, page + size - 1));
 	}
 
 }
