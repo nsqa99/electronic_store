@@ -1,0 +1,96 @@
+#chitietdonhang{
+    width: 100%;
+    /* border: #fb9103 solid 2px; */
+}
+#titleChitietdonhang{
+    text-align: center;
+    color: #fd7703;
+}
+#bodyChitietdonhang{
+    width: 100%;
+    /* background: #f5ecab; */
+    
+}
+.menuChitietdonhang{
+    /* background: beige;
+    color: #f78f04; */
+    font-size: 2vw;
+    margin: 2vw;
+    padding: 2vw;
+}
+.tenSanpham{
+    width: 60%;
+    float: left;
+    color: #0b44c5;
+}
+.soluongSanpham{
+    color: #0b44c5;
+    width: 20%;
+    float: left;
+}
+.giaSanpham{
+    width: 20%;
+    float: left;
+    color: #0b44c5;
+}
+#tongtienChitietdonhang{
+    float: right;
+    padding-top: 2vw;
+    padding-right: 3vw;
+    /* width: 100%; */
+    font-size: 2.5vw;
+}
+#thongtinChitietdonhang{
+    margin-left: 7vw;
+    float: left;
+    width: 100%;
+    padding-top: 1vw;
+}
+.btChitietdonhang{
+    border-radius: 3px;
+    border-color: #779af8;
+    cursor: pointer;
+    padding: 1vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    margin: 5vw;
+    background: #6d93fc;
+}
+#ngaydat{
+    margin-top: 2vw;
+    color: #085ba5;
+    font-size: 2vw;
+}
+#ngaygiao{
+    margin-top: 2vw;
+    color: #085ba5;
+    font-size: 2vw;
+}
+#hotenkhach{
+    margin-top: 2vw;
+    color: #085ba5;
+    font-size: 2vw;
+}
+#sdt{
+    margin-top: 2vw;
+    color: #085ba5;
+    font-size: 2vw;
+}
+#diachi{
+    margin-top: 2vw;
+    color: #085ba5;
+    font-size: 2vw;
+}
+.tenSanpham1{
+    width: 60%;
+    float: left;
+    
+}
+.soluongSanpham1{
+    width: 20%;
+    float: left;
+}
+.giaSanpham1{
+    float: left;
+    width: 20%;
+}

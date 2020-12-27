@@ -1,0 +1,41 @@
+.Thongke{
+    width: 1000px;
+    margin: auto;
+    background:#8080801a;
+    
+}
+.tieude{
+    text-align: center;
+}
+.nv{
+    background: white;
+    border: 1px solid gray;
+
+}
+.nv:hover{
+    background: lightblue;
+
+}
+.loaibaocao{
+    margin-left: 20px;
+}
+
+
+
+.form-group{
+    margin-top: 20px;
+    float: left;
+    margin-left: 20px;
+}
+.timkiem{
+    clear: left;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: violet;
+    border: 1px solid gray;
+}
+hr{
+    clear: left;
+    background: gray;
+}

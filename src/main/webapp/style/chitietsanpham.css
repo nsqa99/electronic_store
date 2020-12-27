@@ -1,0 +1,379 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Menu vang */
+  .thanhvang{
+    background-color: #FED101;
+    width: 100%;
+    /* position: fixed; */
+  }
+  .container{
+    max-width: 1100px;
+    margin: auto;
+  }
+  ul{
+    list-style: none;
+  }
+  a{
+    text-decoration: none;
+  }
+  .menu{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+  .menu-item{
+    padding: 10px 50px;
+  }
+  .thanhvang a{
+    color: black;
+    font-size: 20px;
+  }
+  /* Het menu vang */
+  
+  .tensp{
+    width: 100%;
+    height: 75px;
+  }
+  .chitietsp{
+    
+    max-width: 1100px;
+    margin: auto;
+    margin-bottom: 20px;
+    height: 810px;
+  }
+  .chitietsp h1{
+    float: left;
+      overflow: hidden;
+      font-size: 30px;
+      color: #333;
+      line-height: 75px;
+  }
+  .anhnho img{
+  
+    height: 100px;
+    margin: 10px 0;
+    cursor: pointer;
+    display: inline-block;
+    opacity: .6;
+  }
+  .anhnho img:hover{
+    opacity: 1;
+  }
+  .anhsp{
+    width: 50%;
+    float: left;
+    position: relative;
+    
+  }
+  .anhnho{
+    
+    display: block;
+    position: relative;
+  }
+  .anhnho ul{
+    display: block;
+    overflow: visible;
+  }
+  .anhnho li{
+    display: inline-block;
+    margin: 0px 20px;
+  }
+  .anhto img{
+    height: 500px;
+    
+  }
+  .anhto{
+    /* float: right; */
+    width: 100%;
+  }
+  
+  .giamoi{
+    display: inline-block;
+      overflow: hidden;
+      font-size: 30px;
+      color: #bf081f;
+      vertical-align: middle;
+      margin-right: 5px;
+      position: relative;
+  }
+  .giacu{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+    color: #333;
+    text-decoration: line-through;
+    margin-right: 5px;
+  }
+  .thongtinsp{
+    margin-top: 20px;
+    
+  
+  }
+  .bangthongso{
+    width: 50%;
+    float: left;
+  }
+  .bangthongso h2{
+    display: block;
+      line-height: 3em;
+      font-size: 30px;
+      color: #333;
+  }
+  .thongso{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    padding-top: 10px;
+  }
+  .thongso li{
+    display: table;
+      background: #fff;
+      width: 100%;
+      border-top: 1px solid #eee;
+      padding: 5px 0;
+  }
+  .thongso li span{
+    display: table-cell;
+      width: 40%;
+      vertical-align: top;
+      padding: 5px 0;
+      font-size: 25px;
+      color: #666;
+  }
+  .thongso li div{
+    display: table-cell;
+    width: auto;
+    vertical-align: top;
+    padding: 6px 5px;
+    font-size: 25px;
+    color: #333;
+  }
+  #themvaogiohang{
+    display: block;
+    overflow: hidden;
+    margin: 30px auto;
+    padding: 20px 20px;
+    border-radius: 20px;
+    font-size: 23px;
+    line-height: normal;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    background-color: orange;
+    cursor: pointer;
+  }
+  /* Đánh giá */
+  .tong{
+    width: 100%;
+    /* background-color: rgb(245, 245, 245); */
+    /* height: 500px; */
+    /* height: 389px; */
+    /* padding: 20px 50px 70px; */
+  }
+  .tongdanhgia{
+    /* background-color: #fffbf8; */
+    padding-top: 5px;
+    max-width: 1100px;
+    margin: auto;
+  }
+  .tong h1{
+    color: #222;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 30px;
+    margin-left: 60px;
+    
+  }
+  .chitietdanhgia{
+    /* max-width: 1024px; */
+    height: 278px;
+    /* background-color: #fffbf8; */
+    margin-left: 64px;
+    display: flex;
+    /* border: 1px solid #f9ede5 */
+  }
+  .imganhdaidien{
+    width: 8%;
+    height: 278px;
+    background-color: #ffffff;
+  }
+  .avata{
+    width: 82px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    /* background-color: #fffbf8; */
+  }
+  .avata img{
+    position: absolute;
+    margin-left: 14px;
+    margin-top: 15px;
+  }
+  .noidungdanhgia{
+    display: block;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+  }
+  .tenspdanhgia h5{
+    margin-top:17px;
+    margin-bottom: 7px;
+    margin-left: 3px;   
+  }
+  .imgrating img{
+    margin-top:5px;
+    margin-bottom: 5px;
+    
+  }
+  
+  .noidung{
+    display: block;
+  }
+  
+  .boxdanhgia{
+    /* padding: 10px; */
+     /* background-color: #fffbf8; */
+    width: 100%;
+  }
+  .boxdanhgia textarea{
+    outline: none;
+    background:none;
+    border: 1px solid #f9ede5;
+    padding: 14px 10px;
+    color: black;
+    border-radius: 3px;
+    width: 100%;
+    resize: none; 
+  }
+  
+  .boxdanhgia button{
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 32px;
+    font-size: 16px;
+    color: #fff;
+    margin:4px 2px;
+    cursor: pointer;
+    margin-left: 85%;
+    background-color: #288ad6;
+  }
+  /* Hết Đánh giá */
+  /* Footer */
+  
+  .Footer {
+      clear: left;
+      width: 1130px;
+      background-color: #333333;
+      height: 300px;
+      margin-left: 100px;
+      margin: auto;
+  }
+  
+  .Detail-footer{
+      width: 1130px;
+      height: 300px;
+      background-color: #333333;
+      margin: 0 auto;
+      display: flex;
+      }
+  
+  .Detail-footer1 {
+      padding-left: 10px;
+      width: 25%;
+  }
+  
+  .Footer-List{
+      padding-left: 0px;
+      list-style: none;
+  }
+  .Footer-List li  {
+      
+      font-size: 16px;
+      padding-top: 10px;
+      padding-bottom: 15px;
+      display: block;
+  }
+  .Footer-List li a {
+      text-decoration: none;
+      color: #BDBDBD;
+  }
+  .Footer-List li a:hover{
+      color: red;
+  }
+  .Detail-footer1.lien-lac{
+    margin-left: -78px;
+  }
+  .Footer-item.cuocgoi .anh1{
+    float: left;
+  }
+  .Footer-item.cuocgoi .goi{
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .Footer.Footer-item.cuocgoi a{
+    float: left;
+  }
+  
+  .anh1{
+      width: 23px;
+      height: 21px;
+  }
+  .Detail-footer1.dang{
+    padding-top: 10px;
+    margin-left: 30px;
+  }
+  .Detail-footer1 .fa{
+  float: left;
+  color: #f45c5d;
+  margin-right: 10px;
+  }
+  .Detail-footer1 p{
+    float: left;
+      color: #999999;
+      padding-bottom: 10px;
+  }
+  .email-go {
+      display: block;
+  }
+  .email-go .inputemail{
+      width: 52%;
+      border-radius: 1px;
+      padding: 14px;
+  }
+  .email-go .buttongo{
+      padding: 14px;
+      background-color: #f45c5d;
+      border: none;
+  }
+  .list-anh{
+      list-style: none;
+      
+  }
+  .list-anh li {
+      margin-left: 15px;
+      display: inline-table;
+  }
+  .theodoi{
+    color:#999999 ;
+    padding: 15px 0;
+  
+  }
+  .copy-right{
+    background: #80808047;
+    margin-left: 100px;
+    width: 1130px;
+    font-size: 8.5px;
+    color: gray;
+    padding-top: 23px;
+    height: 38px;
+    margin: auto;
+  }

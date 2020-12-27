@@ -11,6 +11,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import ltweb.electronic_store.contants.URLs;
 import ltweb.electronic_store.model.Product;
@@ -28,7 +29,18 @@ public class SearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String name = request.getParameter("nameP");
+		ArrayList<Product> products = new ArrayList<>();
+		Client client = ClientBuilder.newClient();
+		Response res = client.target(URLs.baseUrl + URLs.searchPath + "?name=" + name.replace(" ", "+"))
+				.request(MediaType.APPLICATION_JSON).get();
+		if (res.getStatus() != 400 && res.getStatus() != 500) {
+			products = res.readEntity(new GenericType<ArrayList<Product>>() {
+			});
+		}
+
+		request.getSession().setAttribute("products", products);
+		request.getRequestDispatcher("dssp.jsp").forward(request, response);
 	}
 
 	/**
@@ -38,14 +50,7 @@ public class SearchServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String name = request.getParameter("nameP");
-		ArrayList<Product> products = new ArrayList<>();
-		Client client = ClientBuilder.newClient();
-		products = client.target(URLs.baseUrl + URLs.searchPath + "?name=" + name.replace(" ", "+"))
-				.request(MediaType.APPLICATION_JSON).get(new GenericType<ArrayList<Product>>() {
-				});
-		request.getSession().setAttribute("products", products);
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		doGet(request, response);
 	}
 
 }

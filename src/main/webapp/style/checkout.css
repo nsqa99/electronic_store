@@ -1,0 +1,98 @@
+#backBtn {
+    background: #eea112;
+    padding: 10px;
+    margin-right: 2%;
+    color: black;
+  }
+  
+  #backBtn:hover {
+    background: white;
+    color: black;
+  }
+  
+  .container {
+    width: 70%;
+    margin: 2% auto;
+  }
+  
+  .navbar {
+    padding: 0;
+    padding-left: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .client__info {
+    position: relative;
+    width: 100%;
+    padding: 2%;
+    border: 1px #d2d2d2 dotted;
+  }
+  
+  .payment__method {
+    width: 100%;
+    height: 50vh;
+    padding: 2%;
+    background: #f0bd17;
+    /* color: white; */
+  }
+  
+  .client__info p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-top: 1%;
+  }
+  
+  .client__info p span {
+    font-weight: normal;
+    padding-left: 1%;
+  }
+  
+  #title {
+    font-size: 2rem;
+    padding-bottom: 2%;
+  }
+  
+  .button__checkout {
+    border: 1px solid black;
+    color: black;
+    font-size: 1.2rem;
+    background: rgb(248, 134, 3);
+  }
+  
+  .button__checkout:hover {
+    color: white;
+  }
+  
+  #infoModifyBtn {
+    position: absolute;
+    right: 5%;
+    top: 10%;
+  }
+  
+  .method {
+    width: 60%;
+    height: 20%;
+    margin-left: 1%;
+    padding-bottom: 2%;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .method__container {
+    width: 100%;
+    height: 10vh;
+    color: black;
+    font-size: 1.2rem;
+    margin-bottom: 2%;
+    /* margin-left: 3%; */
+  }
+  
+  #payBtn {
+    margin: 10% 0 2% 3%;
+    /* position: relative;
+    top: 20%;
+    left: 3%; */
+  }
+  

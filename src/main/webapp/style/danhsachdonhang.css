@@ -1,0 +1,63 @@
+#Danhsachdonhang{
+    background: aliceblue;
+    margin: 2vw;
+    margin-top: 4vw;
+}
+#titleDanhsachdonhang{
+    text-align: center;
+    font-size: 3vw;
+    color: #fd7703;
+}
+.danhsachdonhang{
+    
+    margin-top: 2vw;
+    float: left;
+    font-size: 2vw;
+    width: 100%;
+}
+.danhsachmadonhang{
+    float: left;
+    color: #0759ef;
+    width: 15%;
+}
+.danhsachsanpham{
+    color: #0759ef;
+    float: left;
+    width: 35%;
+}
+.danhsachtongtien{
+    color: #0759ef;
+    float: left;
+    width: 15%;
+}
+.danhsachngay{
+    color: #0759ef;
+    width: 15%;
+    float: left;
+}
+.btXemchitiet{
+    height: 3vw;
+    background: #ceddfd;
+    border-radius: 5px;
+    border-color: aliceblue;
+    cursor: pointer;
+    float: left;
+    width: 20%;
+     
+}
+.dsmadonhang1{
+    width: 15%;
+    float: left;
+}
+.dssanpham1{
+    float: left;
+    width: 35%;
+}
+.dstongtien1{
+    float: left;
+    width: 15%;
+}
+.dsngay1{
+    width: 15%;
+    float: left;
+}
