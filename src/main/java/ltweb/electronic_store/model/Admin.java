@@ -3,7 +3,7 @@ package ltweb.electronic_store.model;
 import java.util.Date;
 
 public class Admin extends User {
-	private String idAdmin;
+	private int idAdmin;
 	private String role;
 
 	public Admin() {
