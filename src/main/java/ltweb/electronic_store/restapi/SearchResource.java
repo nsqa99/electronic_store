@@ -21,12 +21,10 @@ public class SearchResource {
 	public Response searchAllByName(@QueryParam("name") String name, @QueryParam("page") int page,
 			@QueryParam("size") int size) {
 		ArrayList<Product> products = new ArrayList<Product>();
-		products = dao.getByName(name);
-		int start = (page - 1) * size;
-		int end = page * size > products.size() ? products.size() : page * size;
+		products = dao.getByNamePagin(name, page, size);
+		int total = dao.getTotal();
 		if (products != null) {
-			return Response.ok().entity(new ArrayList<>(products.subList(start, end)))
-					.header("X-Total-Count", products.size()).build();
+			return Response.ok().entity(products).header("X-Total-Count", total).build();
 		} else {
 			return Response.status(500).build();
 		}

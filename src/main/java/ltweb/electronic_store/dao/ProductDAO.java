@@ -36,10 +36,25 @@ public class ProductDAO {
 	}
 
 	public ArrayList<Product> getAllPagin(int page, int size) {
-		ArrayList<Product> products = getAll();
-		if (products.size() <= size)
-			return products;
-		return new ArrayList(products.subList(page - 1, page + size - 1));
+		ArrayList<Product> products = new ArrayList<Product>();
+		int start = (page - 1) * size;
+		int end = size;
+
+		PreparedStatement stm;
+		try {
+			stm = conn.prepareStatement(Queries.GET_PRODUCT_WITH_PAGIN);
+			stm.setInt(1, start);
+			stm.setInt(2, end);
+			ResultSet rs = stm.executeQuery();
+			while (rs.next()) {
+				products.add(ProductConverter.convert(rs));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return products;
 	}
 
 	public ArrayList<Product> getByName(String name) {
@@ -61,12 +76,38 @@ public class ProductDAO {
 	}
 
 	public ArrayList<Product> getByNamePagin(String name, int page, int size) {
-		ArrayList<Product> products = getByName(name);
+		ArrayList<Product> products = new ArrayList<Product>();
 		int start = (page - 1) * size;
-		int end = page * size > products.size() ? products.size() : page * size;
-		if (products.size() <= size)
-			return products;
-		return new ArrayList(products.subList(start, end));
+		int end = size;
+
+		PreparedStatement stm;
+		try {
+			stm = conn.prepareStatement(Queries.GET_PRODUCT_BY_NAME_WITH_PAGIN);
+			stm.setString(1, "%" + name + "%");
+			stm.setInt(2, start);
+			stm.setInt(3, end);
+			ResultSet rs = stm.executeQuery();
+			while (rs.next()) {
+				products.add(ProductConverter.convert(rs));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return products;
+	}
+
+	public int getTotal() {
+		int total = 0;
+		try {
+			ResultSet rs = conn.prepareStatement(Queries.GET_TOTAL_PRODUCT).executeQuery();
+			rs.next();
+			total = rs.getInt(1);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return total;
 	}
 
 }

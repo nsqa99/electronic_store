@@ -1,5 +1,5 @@
-<%@page import="ltweb.electronic_store.contants.URLs"%>
 <%@page import="ltweb.electronic_store.contants.Settings"%>
+<%@page import="ltweb.electronic_store.contants.URLs"%>
 <%@page import="ltweb.electronic_store.model.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -55,7 +55,7 @@
 		        	<div class="pagination">
 		        		
 		        	  <%
-		        	  	
+		        	  	//System.out.println("page size: " + Settings.PAGE_SIZE + ", total page: " + Math.ceil((double)total/(double)Settings.PAGE_SIZE));
 		        	  	for(int i=1; i<=Math.ceil((double)total/(double)Settings.PAGE_SIZE); i++) {
 		        			if(currentPage == i) {%>
 		        				<a 

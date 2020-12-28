@@ -51,10 +51,9 @@ public class SearchServlet extends HttpServlet {
 			});
 		}
 
-		if (session.getAttribute("total") == null) {
-			int total = Integer.parseInt(res.getHeaderString("X-Total-Count"));
-			session.setAttribute("total", total);
-		}
+		int total = Integer.parseInt(res.getHeaderString("X-Total-Count"));
+		session.setAttribute("total", total);
+
 		session.setAttribute("products", products);
 		request.getRequestDispatcher("dssp.jsp").forward(request, response);
 	}
