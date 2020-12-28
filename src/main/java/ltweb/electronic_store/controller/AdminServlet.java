@@ -31,7 +31,7 @@ public class AdminServlet extends HttpServlet {
 		
 		ArrayList<Admin> admin = new ArrayList<>();
 		Client client = ClientBuilder.newClient();
-		Response res = client.target(URLs.baseUrl + "admin")
+		Response res = client.target(URLs.baseUrl + "/admin")
 				.request(MediaType.APPLICATION_JSON).get();
 		if (res.getStatus() != 400 && res.getStatus() != 500) {
 			admin = res.readEntity(new GenericType<ArrayList<Admin>>() {
