@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="ltweb.electronic_store.model.*" %>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,22 +50,37 @@
                 </tr>
                 </thead>
                 <tbody >
-                <tr>
-                        <td>Võ Trường</td>
-                        <td>Nam</td>
-                        <td>15/03/2000</td>
-                        <td>Thông Tin Bảo Mật</td>
-
-                        <td>Admin</td>
-                        <td>
-                        <a class="add" title="Lưu Lại" data-toggle="tooltip"><i class="fa fa-save"
-                                aria-hidden="true"></i></a>
-                        <a class="edit" title="Sửa" data-toggle="tooltip"><i class="fa fa-pencil"
-                                aria-hidden="true"></i></a>
-                        <a class="delete" title="Xóa" data-toggle="tooltip"><i class="fa fa-trash-o"
-                                aria-hidden="true"></i></a>
-                        </td>
-                </tr>
+                
+                                <% ArrayList<Admin> admins = (ArrayList<Admin>) request.getSession().getAttribute("admin");
+                        		if (admins != null) {%>
+                    			bang rong
+            	        		<%if (admins.size() == 0) { %>
+            	        		bang rong
+            	        		<% }  else{%>
+            	        		<% 
+			        				for(Admin ad : admins) {
+			        			%>
+                                <tr>
+                                        <td>ad.getFullName()</td>
+                                        <td>ad.getGender()</td>
+                                        <td>ad.getDob()</td>
+                                        <td>ad.getAddress()</td>
+                
+                                        <td>ad.getRole()</td>
+                                        <td>
+                                        <a class="add" title="Lưu Lại" data-toggle="tooltip"><i class="fa fa-save"
+                                                aria-hidden="true"></i></a>
+                                        <a class="edit" title="Sửa" data-toggle="tooltip"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i></a>
+                                        <a class="delete" title="Xóa" data-toggle="tooltip"><i class="fa fa-trash-o"
+                                                aria-hidden="true"></i></a>
+                                        </td>
+                                </tr>
+                                <% } %>
+                            <% } %>
+	       				<% } %>
+                               
+                            
                 <tr>
                         <td>Trần Khả Ái</td>
                         <td>Nữ</td>

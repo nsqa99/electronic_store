@@ -10,6 +10,7 @@ public class Queries {
 	public static final String GET_PRODUCT = GET + "Sanpham";
 	public static final String GET_ORDER = GET + "Hoadon";
 	public static final String GET_CART = GET + "Giohang";
+	public static final String GET_ADMIN = GET + "admin";
 
 	// get by id
 	public static final String GET_CUSTOMER_BY_ID = GET_CUSTOMER + " " + CONDITION + "MaKH = ?";
