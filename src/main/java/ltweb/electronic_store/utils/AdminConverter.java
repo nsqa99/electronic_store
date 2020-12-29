@@ -16,8 +16,9 @@ public class AdminConverter {
 		String role = rs.getString("Quyen");
 		String ten = rs.getString("Ten");
 		String gioitinh = rs.getString("Gioitinh");
-		Date ngaysinh = rs.getDate("Ngaysinh");
+		String ngaysinh = rs.getDate("Ngaysinh").toString();
 		String diachi = rs.getString("Diachi");
+		
 		
 		return new Admin(tendnAdmin, passAdmin, ten, diachi,gioitinh, ngaysinh, idAdmin, role);
 	}

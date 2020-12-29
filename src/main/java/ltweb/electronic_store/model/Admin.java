@@ -31,7 +31,7 @@ public class Admin extends User {
 	}
 
 
-	public Admin(String username, String password, String fullName, String address, String gender, Date dob,
+	public Admin(String username, String password, String fullName, String address, String gender, String dob,
 			int idAdmin, String role) {
 		super(username, password, fullName, address, gender, dob);
 		// TODO Auto-generated constructor stub

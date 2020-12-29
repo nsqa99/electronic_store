@@ -11,7 +11,7 @@ public class Customer extends User {
 	}
 
 	public Customer(int idCust, String username, String password, String fullName, String address, String phone,
-			Date dob) {
+			String dob) {
 		super(username, password, fullName, address, phone, dob);
 		this.idCust = idCust;
 		this.phone = phone;
