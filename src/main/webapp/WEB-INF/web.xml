@@ -10,8 +10,28 @@
   	<description></description>
   	<servlet-class>ltweb.electronic_store.controller.SearchServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>OrderServlet</servlet-name>
+  	<display-name>OrderServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.OrderServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DetailOrderServlet</servlet-name>
+  	<display-name>DetailOrderServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.DetailOrderServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>SearchServlet</servlet-name>
   	<url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderServlet</servlet-name>
+  	<url-pattern>/OrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DetailOrderServlet</servlet-name>
+  	<url-pattern>/DetailOrderServlet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -10,9 +10,9 @@ public class Admin extends User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Admin(String username, String password, String fullName, String address, String gender, Date dob,
+	public Admin(String username, String password, String fullName, String address, String gender,
 			String idAdmin, String role) {
-		super(username, password, fullName, address, gender, dob);
+		super(username, password, fullName, address, gender);
 		// TODO Auto-generated constructor stub
 		this.idAdmin = idAdmin;
 		this.role = role;
