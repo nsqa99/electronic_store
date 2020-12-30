@@ -98,6 +98,33 @@ public class ProductDAO {
 		return products;
 	}
 
+	public ArrayList<Product> getByType(String name, String type, int page, int size) {
+		ArrayList<Product> products = new ArrayList<Product>();
+		System.out.println("type " + type);
+		String query = type.equals("laptop") ? Queries.GET_LAPTOP_BY_NAME_WITH_PAGIN
+				: Queries.GET_MOBILE_BY_NAME_WITH_PAGIN;
+		int start = (page - 1) * size;
+		int end = size;
+
+		PreparedStatement stm;
+		try {
+			stm = conn.prepareStatement(query);
+			stm.setString(1, "%" + name + "%");
+			stm.setInt(2, start);
+			stm.setInt(3, end);
+			ResultSet rs = stm.executeQuery();
+			while (rs.next()) {
+				products.add(type.equals("laptop") ? ProductConverter.convertLaptop(rs)
+						: ProductConverter.convertMobile(rs));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return products;
+	}
+
 	public int getTotal() {
 		int total = 0;
 		try {

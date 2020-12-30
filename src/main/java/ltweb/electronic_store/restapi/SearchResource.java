@@ -19,9 +19,14 @@ public class SearchResource {
 
 	@GET
 	public Response searchAllByName(@QueryParam("name") String name, @QueryParam("page") int page,
-			@QueryParam("size") int size) {
+			@QueryParam("size") int size, @QueryParam("type") String type) {
 		ArrayList<Product> products = new ArrayList<Product>();
-		products = dao.getByNamePagin(name, page, size);
+		if (type == null) {
+			products = dao.getByNamePagin(name, page, size);
+		} else {
+			products = dao.getByType(name, type, page, size);
+		}
+
 		int total = dao.getTotal();
 		if (products != null) {
 			return Response.ok().entity(products).header("X-Total-Count", total).build();
