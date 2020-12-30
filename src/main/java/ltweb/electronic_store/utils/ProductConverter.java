@@ -21,9 +21,11 @@ public class ProductConverter {
 		String ROM = rs.getString("ROM");
 		String battery = rs.getString("Pin");
 		String warranty = rs.getString("Baohanh");
+		Product product = new Product(name, discountedPrice, price, amount, image, screen, os, CPU, RAM, ROM, battery,
+				warranty, null);
+		product.setIdProduct(idProduct);
 
-		return new Product(idProduct, name, discountedPrice, price, amount, image, screen, os, CPU, RAM, ROM, battery,
-				warranty);
+		return product;
 	}
 
 }
