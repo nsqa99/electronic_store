@@ -5,7 +5,7 @@ import java.util.Date;
 public class Order {
 	private int idOrd;
 	private int idCust;
-	private Date createdDate;
+	private String createdDate;
 	private double total;
 	private Cart cart;
 
@@ -13,7 +13,7 @@ public class Order {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Order(int idOrd, int idCust, Date createdDate, Cart cart) {
+	public Order(int idOrd, int idCust, String createdDate, Cart cart) {
 		super();
 		this.idOrd = idOrd;
 		this.idCust = idCust;
@@ -37,11 +37,11 @@ public class Order {
 		this.idCust = idCust;
 	}
 
-	public Date getCreatedDate() {
+	public String getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
 	}
 
