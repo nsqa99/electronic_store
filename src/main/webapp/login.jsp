@@ -21,6 +21,7 @@
 	
 </head>
 <body>
+<h1><%=session.getAttribute("successMessage") %></h1>
 <div class="container">
 	<!-- action="index.html" -->
 	<form class="box" method="post" > 
