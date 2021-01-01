@@ -16,12 +16,22 @@
   	<description></description>
   	<servlet-class>ltweb.electronic_store.controller.AdminServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
+  <servlet>
+  	<servlet-name>DeleteAdminServlet</servlet-name>
+  	<display-name>DeleteAdminServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.DeleteAdminServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
   	<servlet-name>SearchServlet</servlet-name>
   	<url-pattern>/search</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>AdminServlet</servlet-name>
   	<url-pattern>/AdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteAdminServlet</servlet-name>
+  	<url-pattern>/DeleteAdminServlet</url-pattern>
   </servlet-mapping>
 </web-app>

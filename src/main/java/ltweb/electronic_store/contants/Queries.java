@@ -20,4 +20,8 @@ public class Queries {
 
 	// search product by name
 	public static final String GET_PRODUCT_BY_NAME = GET_PRODUCT + " " + CONDITION + "TenSP LIKE ?";
+	
+	
+	// delete by id
+	public static final String DELETE_ADMIN_BY_ID = DELETE + "admin "  + CONDITION + "MaAdmin = ?";
 }

@@ -68,12 +68,12 @@
                 
                                         <td><%=ad.getRole()%></td>
                                         <td>
-                                        <a class="add" title="Lưu Lại" data-toggle="tooltip"><i class="fa fa-save"
-                                                aria-hidden="true"></i></a>
-                                        <a class="edit" title="Sửa" data-toggle="tooltip"><i class="fa fa-pencil"
-                                                aria-hidden="true"></i></a>
-                                        <a class="delete" title="Xóa" data-toggle="tooltip"><i class="fa fa-trash-o"
-                                                aria-hidden="true"></i></a>
+                                        
+                                        <%if (ad.getIdAdmin()>1) {%>
+                                        <form action="<%=request.getContextPath()%>/DeleteAdminServlet" method="get">
+                    					<input type="hidden" name = "idAd" value = <%= ad.getIdAdmin()%>>
+                    					<input class = "delete" type="submit" value="Xóa">  
+                    					<%} %>      
                                         </td>
                                 </tr>
                                 <% } %>
