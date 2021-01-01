@@ -14,7 +14,6 @@ public class Product {
 	private String rom;
 	private String battery;
 	private String warranty;
-	private String loai;
 
 	public Product() {
 	}
@@ -25,8 +24,8 @@ public class Product {
 		return "Product: { " + "id: " + idProduct + ", name: " + name + ", price: " + price + " }";
 	}
 
-	public Product(String name, double discountedPrice, double price, int amount, String image,
-			String screen, String os, String cpu, String ram, String rom, String battery, String warranty, String loai) {
+	public Product(int idProduct, String name, double discountedPrice, double price, int amount, String image,
+			String screen, String os, String cpu, String ram, String rom, String battery, String warranty) {
 		super();
 		this.idProduct = idProduct;
 		this.name = name;
@@ -41,18 +40,7 @@ public class Product {
 		this.rom = rom;
 		this.battery = battery;
 		this.warranty = warranty;
-		this.loai = loai;
 	}
-	
-	public Product(String name, double discountedPrice, double price, int amount, String image) {
-		
-		this.name = name;
-		this.discountedPrice = discountedPrice;
-		this.price = price;
-		this.amount = amount;
-		this.image = image;
-	}
-	
 
 	public int getIdProduct() {
 		return idProduct;
@@ -100,14 +88,6 @@ public class Product {
 
 	public void setImage(String image) {
 		this.image = image;
-	}
-	
-	public String getType() {
-		return loai;
-	}
-
-	public void setType(String loai) {
-		this.loai = loai;
 	}
 
 	public String getScreen() {
