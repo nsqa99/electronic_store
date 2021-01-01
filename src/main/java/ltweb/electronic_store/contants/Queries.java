@@ -31,4 +31,12 @@ public class Queries {
 			+ "LIMIT ?, ?";
 
 	public static final String GET_TOTAL_PRODUCT = "SELECT COUNT(MaSP) FROM Sanpham";
+
+	public static final String GET_TOTAL_PRODUCT_BY_NAME = "SELECT COUNT(MaSP) AS numberOfProducts FROM Sanpham "
+			+ CONDITION + "TenSP LIKE ?";
+	public static final String GET_TOTAL_LAPTOP_BY_NAME = "SELECT COUNT(lt.MaSP) AS numberOfLaptops "
+			+ "FROM Laptop AS lt INNER JOIN Sanpham AS sp ON lt.MaSP = sp.MaSP " + CONDITION + "sp.TenSP LIKE ?";
+	public static final String GET_TOTAL_MOBILE_BY_NAME = "SELECT COUNT(dt.MaSP) AS numberOfMobiles "
+			+ "FROM Dienthoai AS dt INNER JOIN Sanpham AS sp ON dt.MaSP = sp.MaSP " + CONDITION + "sp.TenSP LIKE ?";
+
 }

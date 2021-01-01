@@ -137,4 +137,25 @@ public class ProductDAO {
 		return total;
 	}
 
+	public int getTotalProductByName(String name, String type) {
+		int total = 0;
+		String query;
+		if (type == null) {
+			query = Queries.GET_TOTAL_PRODUCT_BY_NAME;
+		} else {
+			query = type.equals("laptop") ? Queries.GET_TOTAL_LAPTOP_BY_NAME : Queries.GET_TOTAL_MOBILE_BY_NAME;
+		}
+
+		try {
+			PreparedStatement stm = conn.prepareStatement(query);
+			stm.setString(1, "%" + name + "%");
+			ResultSet rs = stm.executeQuery();
+			rs.next();
+			total = rs.getInt(1);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return total;
+	}
+
 }

@@ -23,11 +23,13 @@ public class SearchResource {
 		ArrayList<Product> products = new ArrayList<Product>();
 		if (type == null) {
 			products = dao.getByNamePagin(name, page, size);
+
 		} else {
 			products = dao.getByType(name, type, page, size);
 		}
 
-		int total = dao.getTotal();
+		int total = dao.getTotalProductByName(name, type);
+
 		if (products != null) {
 			return Response.ok().entity(products).header("X-Total-Count", total).build();
 		} else {

@@ -32,10 +32,12 @@
 	        		<h1>Không tìm thấy sản phẩm nào</h1>
 	        	<% } else { 
 					//System.out.println("size" + products.size() + "query size" + Settings.PAGE_SIZE); %>
-					<div>
+					<div class="filters">
+						
 						<form action="<%=request.getContextPath()%>/filter" method="GET">
+							<label for="type" style="font-size: 1.2rem;">Phân loại:</label>
 							<select name="type" id="productType" onchange="this.form.submit()">
-								<option disabled selected value> -- Loại sản phẩm -- </option>
+								<option disabled selected value>Loại sản phẩm</option>
 								<option 
 									<% if(type != null) { %> 
 										<% if (type.equals("laptop")) { %>
@@ -65,7 +67,7 @@
 							<%} %>" 
 							method="GET">
 							<select name="size" id="pageSize" onchange="this.form.submit()">
-								<option disabled selected value> -- Hiển thị -- </option>
+								<option disabled selected value>Hiển thị</option>
 								<option 
 									<% if(size != 0) { %> 
 										<% if (size == 5) { %>
