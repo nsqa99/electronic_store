@@ -1,3 +1,5 @@
+<%@page import="ltweb.electronic_store.model.Order"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -5,8 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style/danhsachdonhang.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="./style/danhsachdonhang1.css">
    
 </head>
 <body>
@@ -18,35 +19,58 @@
                 <div class = "danhsachmadonhang">
                     <span> Mã đơn hàng</span>
                 </div>
-                <div class = "danhsachsanpham">
-                    <span>Sản phẩm</span>
+                
+                 <div class = "danhsachngay">
+                    <span>Ngày đặt</span>
                 </div>
-                <div class = danhsachtongtien>
+                <div class = danhsachsanpham>
+                    <span>Tổng số lượng</span>
+                </div>
+                 <div class = danhsachtongtien>
                     <span>Tổng tiền</span>
                 </div>
-                <div class = danhsachngay>Ngày</div>
+                
                 
         </div>
         <div id = menuDanhsachdonhang>
+        <% ArrayList<Order> Orders = (ArrayList<Order>) request.getSession().getAttribute("orders");
+        	if (Orders != null) {
+        		
+	        	if (Orders.size() == 0) { %>
+	        		
+	        	<% } else { %>
+	        		<div class="dssp">
+			        	<% 
+			        		for(Order order: Orders) {
+			        	%>
             <div class = danhsachdonhang>
                 <div class = dsmadonhang1>
-                    1234
+                    <span><%= order.getIdOrd() %></span>
                 </div>
+                
                 <div class = "dssanpham1">
-                    san pham1
+                    <span><%= order.getCreatedDate()%></span>
+                </div>
+                <div class = dsmadonhang1>
+                    <span><%= order.getAmount() %></span>
+					                    
+					                    
                 </div>
                 <div class="dstongtien1">
-                    1234567
+                    <span><%= order.getTotal() %></span>
                 </div>
-                <div class="dsngay1">
-                    12/12/1999
-                </div>
+                
+                
                 <!-- <button class="btXemchitiet"></button> -->
                 <!-- <div class="btXemchitiet"> -->
-                    <a href="chitietdonhang.html">
-                    <input class = "btXemchitiet" type="button" value="Xem chi tiết">
-                </a>
-                <!-- </div> -->
+                    <form action="<%=request.getContextPath()%>/DetailOrderServlet" method="get">
+                    <input type="hidden" name = "idHD" value = <%= order.getIdOrd()%>>
+                    <input class = "btXemchitiet" type="submit" value="Xem chi tiết">
+                </form>
+                <% } %>
+                <% } %>
+                <% } %>
+                 </div> 
             </div>
 
         </div>

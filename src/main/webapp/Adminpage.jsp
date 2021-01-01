@@ -38,9 +38,9 @@
                 <div id ="khung"></div>
                 <div id = "danhmuc">
                   <ul id = "mucluc">
-                      <li class = "chucnang">
-                          <input class = "btnChucnang" type="button" value="Quản lý đơn hàng" onclick="Danhsach('Danhsachdonhang', 'themSP', 'Thongke', 'QLNV')">
-                      </li>
+                      <li class = "chucnang"><form action="<%=request.getContextPath()%>/OrderServlet" method="get">
+                          <input class = "btnChucnang" type="submit" value="Quản lý đơn hàng">
+                      </form></li>
                       <li class = "chucnang">
                           <input class = "btnChucnang" type="button" value="Thêm sản phẩm" onclick="themSP('themSP', 'Thongke', 'QLNV','Danhsachdonhang')">
                           
