@@ -23,11 +23,9 @@ public class ProductConverter {
 		String ROM = rs.getString("ROM");
 		String battery = rs.getString("Pin");
 		String warranty = rs.getString("Baohanh");
-		Product product = new Product(name, discountedPrice, price, amount, image, screen, os, CPU, RAM, ROM, battery,
-				warranty, null);
-		product.setIdProduct(idProduct);
 
-		return product;
+		return new Product(idProduct, name, discountedPrice, price, amount, image, screen, os, CPU, RAM, ROM, battery,
+				warranty);
 	}
 
 	public static Laptop convertLaptop(ResultSet rs) throws SQLException {

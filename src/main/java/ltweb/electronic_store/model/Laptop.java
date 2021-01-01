@@ -1,7 +1,6 @@
 package ltweb.electronic_store.model;
 
 public class Laptop extends Product {
-	private Product product;
 	private String camera;
 	private String VGA;
 
@@ -11,23 +10,12 @@ public class Laptop extends Product {
 
 	public Laptop(int idProduct, String name, double discountedPrice, double price, int amount, String image,
 			String screen, String os, String cpu, String ram, String rom, String battery, String warranty,
-			String camera, String VGA, String loai) {
-		super(name, discountedPrice, price, amount, image, screen, os, cpu, ram, rom, battery, warranty, loai);
+			String camera, String VGA) {
+		super(idProduct, name, discountedPrice, price, amount, image, screen, os, cpu, ram, rom, battery, warranty);
 		this.camera = camera;
 		this.VGA = VGA;
 	}
-	
-	public Laptop(Product product, String camera, String VGA) {
-		super(product.getName(),product.getDiscountedPrice(), product.getPrice(), product.getAmount(),
-				product.getImage(), product.getScreen(), product.getOs(), product.getCpu(), product.getRam(), product.getRom(), product.getBattery(),
-				product.getWarranty(), product.getType());
-		this.product = product;
-		this.camera = camera;
-		this.VGA = VGA;
-	}
-	public Product getProduct() {
-		return product;
-	}
+
 	public String getCamera() {
 		return camera;
 	}

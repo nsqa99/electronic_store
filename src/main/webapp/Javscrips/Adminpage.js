@@ -116,4 +116,3 @@ function QLNV(id, id1, id2, id3){
         qlnv = true;
     }
 }
-
