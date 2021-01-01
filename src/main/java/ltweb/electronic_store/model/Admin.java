@@ -1,7 +1,5 @@
 package ltweb.electronic_store.model;
 
-import java.util.Date;
-
 public class Admin extends User {
 	private int idAdmin;
 	private String role;
@@ -10,8 +8,8 @@ public class Admin extends User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Admin(String username, String password, String fullName, String address, String gender,
-			String idAdmin, String role) {
+	public Admin(String username, String password, String fullName, String address, String gender, int idAdmin,
+			String role) {
 		super(username, password, fullName, address, gender);
 
 		// TODO Auto-generated constructor stub
