@@ -12,4 +12,6 @@ public class URLs {
 	public static final String searchDetailHoaDonPath = "/chitiethoadon";
 	public static final String searchHoaDonByIDPath = "/hoadonByID";
 	
+
+	public static final String searchUrl = "http://localhost:8080/electronic-store/search?nameP=";
 }

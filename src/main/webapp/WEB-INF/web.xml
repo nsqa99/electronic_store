@@ -21,6 +21,10 @@
   	<display-name>DetailOrderServlet</display-name>
   	<description></description>
   	<servlet-class>ltweb.electronic_store.controller.DetailOrderServlet</servlet-class>
+  	<servlet-name>ProductFilterServlet</servlet-name>
+  	<display-name>ProductFilterServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.ProductFilterServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>SearchServlet</servlet-name>
@@ -33,5 +37,7 @@
   <servlet-mapping>
   	<servlet-name>DetailOrderServlet</servlet-name>
   	<url-pattern>/DetailOrderServlet</url-pattern>
+  	<servlet-name>ProductFilterServlet</servlet-name>
+  	<url-pattern>/filter</url-pattern>
   </servlet-mapping>
 </web-app>
