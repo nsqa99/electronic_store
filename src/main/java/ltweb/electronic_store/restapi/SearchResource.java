@@ -18,10 +18,20 @@ public class SearchResource {
 	private ProductDAO dao = new ProductDAO();
 
 	@GET
-	public Response searchAllByName(@QueryParam("name") String name) {
-		ArrayList<Product> products = dao.getByName(name);
+	public Response searchAllByName(@QueryParam("name") String name, @QueryParam("page") int page,
+			@QueryParam("size") int size, @QueryParam("type") String type) {
+		ArrayList<Product> products = new ArrayList<Product>();
+		if (type == null) {
+			products = dao.getByNamePagin(name, page, size);
+
+		} else {
+			products = dao.getByType(name, type, page, size);
+		}
+
+		int total = dao.getTotalProductByName(name, type);
+
 		if (products != null) {
-			return Response.ok().entity(products).build();
+			return Response.ok().entity(products).header("X-Total-Count", total).build();
 		} else {
 			return Response.status(500).build();
 		}

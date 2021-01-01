@@ -1,24 +1,26 @@
 package ltweb.electronic_store.model;
 
-import java.util.Date;
 
 public class Order {
 	private int idOrd;
 	private int idCust;
-	private Date createdDate;
+	private String createdDate;
 	private double total;
-	private Cart cart;
+	private int amount;
 
 	public Order() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Order(int idOrd, int idCust, Date createdDate, Cart cart) {
+
+	public Order(int idOrd, int idCust, String createdDate, double total,int amount) {
+
 		super();
 		this.idOrd = idOrd;
 		this.idCust = idCust;
+		this.total = total;
 		this.createdDate = createdDate;
-		this.cart = cart;
+		this.amount = amount;
 	}
 
 	public int getIdOrd() {
@@ -37,24 +39,29 @@ public class Order {
 		this.idCust = idCust;
 	}
 
-	public Date getCreatedDate() {
+	public String getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
 	}
 
 	public double getTotal() {
-		return cart.getTotal();
+		return total;
 	}
 
-	public Cart getCart() {
-		return cart;
+	public void setTotal(double total) {
+		this.total = total;
 	}
 
-	public void setCart(Cart cart) {
-		this.cart = cart;
+	public int getAmount() {
+		return amount;
 	}
 
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	
 }

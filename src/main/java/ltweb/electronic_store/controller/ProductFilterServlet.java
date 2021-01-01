@@ -19,9 +19,9 @@ import ltweb.electronic_store.contants.URLs;
 import ltweb.electronic_store.model.Product;
 
 /**
- * Servlet implementation class SearchServlet
+ * Servlet implementation class ProductFilterServlet
  */
-public class SearchServlet extends HttpServlet {
+public class ProductFilterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -31,14 +31,18 @@ public class SearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
+
+		// session.setMaxInactiveInterval(10000);
 		String name = request.getParameter("nameP");
 		String type = request.getParameter("type");
 		int size = Settings.PAGE_SIZE;
 		size = request.getParameter("size") == null ? size : Integer.parseInt(request.getParameter("size"));
 		session.setAttribute("size", size);
 
-		session.setAttribute("type", type);
+		if (type != null)
+			session.setAttribute("type", type);
 		session.setAttribute("nameQuery", name);
 		String pageStr = request.getParameter("page");
 		int page;
@@ -47,8 +51,8 @@ public class SearchServlet extends HttpServlet {
 		else
 			page = Integer.parseInt(pageStr);
 		session.setAttribute("page", page);
-		String searchUrl = URLs.baseUrl + URLs.searchPath + "?name=" + name.replace(" ", "+") + "&page="
-				+ Integer.toString(page) + "&size=" + Integer.toString(size);
+		String searchUrl = URLs.baseUrl + URLs.searchPath + "?name=" + name.replace(" ", "+") + "&type=" + type
+				+ "&page=" + Integer.toString(page) + "&size=" + Integer.toString(size);
 		ArrayList<Product> products = new ArrayList<>();
 		Client client = ClientBuilder.newClient();
 		Response res = client.target(searchUrl).request(MediaType.APPLICATION_JSON).get();
@@ -62,16 +66,6 @@ public class SearchServlet extends HttpServlet {
 
 		session.setAttribute("products", products);
 		request.getRequestDispatcher("dssp.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
