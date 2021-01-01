@@ -36,12 +36,15 @@ public class AdminDAO {
 		try {
 			
 			PreparedStatement stm = conn.prepareStatement(Queries.DELETE_ADMIN_BY_ID);
+			System.out.println(Queries.DELETE_ADMIN_BY_ID);
 			stm.setString(1,  String.valueOf(ID) );
-			ResultSet rs = stm.executeQuery();
+			System.out.println(stm);
+			 stm.executeUpdate();
+			
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
-			
+			e.printStackTrace();
 			return false;
 		}
 		

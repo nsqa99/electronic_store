@@ -23,9 +23,10 @@ public class DeleteAdminResource {
 private AdminDAO dao = new AdminDAO();
 	
 	@DELETE
-	@Path("{id}")
-	public Response deleteAdmin(@PathParam("id") String adminid) {
+	@Path("{adminId}")
+	public Response deleteAdmin(@PathParam("adminId") String adminid) {
 		int ID = Integer.parseInt(adminid);
+		System.out.println(ID);
 		boolean delete = dao.deleteByID(ID);
 		if (delete == true) {
 			return Response.ok().entity(adminid).build();
