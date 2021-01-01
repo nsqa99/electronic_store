@@ -42,6 +42,15 @@ public class DeleteAdminServlet extends HttpServlet {
 		Response res = client.target(URLs.baseUrl).path(URLs.DELETE_ADMIN_PATH).resolveTemplate("adminId", id).request(MediaType.APPLICATION_JSON).delete();
 		//request.getRequestDispatcher("quanlynhanvien.jsp").forward(request, response);
 		
+		ArrayList<Admin> admin = new ArrayList<>();
+		res = client.target(URLs.baseUrl + "/admin")
+				.request(MediaType.APPLICATION_JSON).get();
+		if (res.getStatus() != 400 && res.getStatus() != 500) {
+			admin = res.readEntity(new GenericType<ArrayList<Admin>>() {
+			});
+		}
+		request.getSession().setAttribute("admin", admin);
+		request.getRequestDispatcher("quanlynhanvien.jsp").forward(request, response);
 	}
 
 	/**
