@@ -71,8 +71,9 @@
                                         
                                         <%if (ad.getIdAdmin()>1) {%>
                                         <form action="<%=request.getContextPath()%>/DeleteAdminServlet" method="get">
-                    					<input type="hidden" name = "idAd" value = <%= ad.getIdAdmin()%>>
-                    					<input class = "delete" type="submit" value="Xóa">  
+                    					<input type="hidden" name = "idAd" value = <%=ad.getIdAdmin()%>>
+                    					<input class = "delete" type="submit" value="Xóa">
+                    					</form>  
                     					<%} %>      
                                         </td>
                                 </tr>

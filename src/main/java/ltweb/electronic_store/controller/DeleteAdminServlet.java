@@ -39,8 +39,8 @@ public class DeleteAdminServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("idAd"));
 		System.out.println(id);
 		Client client = ClientBuilder.newClient();
-		Response res = client.target(URLs.baseUrl + "/DELETE").request(MediaType.APPLICATION_JSON).get();
-		
+		Response res = client.target(URLs.baseUrl).path(URLs.DELETE_ADMIN_PATH).resolveTemplate("adminId", id).request(MediaType.APPLICATION_JSON).delete();
+		request.getRequestDispatcher("quanlynhanvien.jsp").forward(request, response);
 	}
 
 	/**

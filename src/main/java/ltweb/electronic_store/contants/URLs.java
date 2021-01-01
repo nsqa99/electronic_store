@@ -5,4 +5,6 @@ public class URLs {
 	public static final String baseUrl = "http://localhost:8080/electronic-store/api";
 	public static final String productPath = "/products";
 	public static final String searchPath = "/search";
+	
+	public static final String DELETE_ADMIN_PATH = "deletead/{adminId}";
 }
