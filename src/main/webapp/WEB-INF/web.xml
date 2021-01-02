@@ -17,6 +17,12 @@
   	<servlet-class>ltweb.electronic_store.controller.AdminServlet</servlet-class>
   </servlet>
   <servlet>
+	<servlet-name>ResgisterServlet</servlet-name>
+  	<display-name>ResgisterServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.ResgisterServlet</servlet-class>
+  </servlet>
+  <servlet>
   	
   	<servlet-name>OrderServlet</servlet-name>
   	<display-name>OrderServlet</display-name>
@@ -43,7 +49,10 @@
   	<description></description>
   	<servlet-class>ltweb.electronic_store.controller.DeleteAdminServlet</servlet-class>
   </servlet>
-  
+  <servlet-mapping>
+  	<servlet-name>ResgisterServlet</servlet-name>
+  	<url-pattern>/ResgisterServlet</url-pattern>
+  </servlet-mapping>
    <servlet-mapping>
   	<servlet-name>SearchServlet</servlet-name>
   	<url-pattern>/search</url-pattern>
