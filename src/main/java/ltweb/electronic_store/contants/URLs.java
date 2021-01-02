@@ -7,6 +7,7 @@ public class URLs {
 	public static final String resgisterPath = "/resgister";
 	public static final String productPath = "/products";
 	public static final String searchPath = "/search";
+	public static final String loginPath = "/login";
 
 	public static final String searchHoaDonPath = "/hoadon";
 	public static final String searchAllHoaDonPath = "/Allhoadon";
@@ -15,6 +16,6 @@ public class URLs {
 	public static final String searchHoaDonByIDPath = "/hoadonByID";
 
 	public static final String searchUrl = "http://localhost:8080/electronic-store/search?nameP=";
-	
+
 	public static final String DELETE_ADMIN_PATH = "deletead/{adminId}";
 }
