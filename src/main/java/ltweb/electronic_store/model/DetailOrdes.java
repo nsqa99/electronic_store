@@ -1,12 +1,12 @@
 package ltweb.electronic_store.model;
 
-public class ChitietHoadon {
+public class DetailOrdes {
 	private int idHD;
 	private int idSP;
 	private String tenSP;
 	private int soluong;
 	private double gia;
-	public ChitietHoadon(int idHD, int idSP, String tenSP, int soluong, double gia) {
+	public DetailOrdes(int idHD, int idSP, String tenSP, int soluong, double gia) {
 		super();
 		this.idHD = idHD;
 		this.idSP = idSP;
@@ -15,7 +15,13 @@ public class ChitietHoadon {
 		this.gia = gia;
 	}
 	
-	public ChitietHoadon() {
+	@Override
+	public String toString() {
+		return "DetailOrdes [idHD=" + idHD + ", idSP=" + idSP + ", tenSP=" + tenSP + ", soluong=" + soluong + ", gia="
+				+ gia + "]";
+	}
+
+	public DetailOrdes() {
 		super();
 	}
 

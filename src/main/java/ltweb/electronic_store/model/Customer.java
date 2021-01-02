@@ -1,7 +1,5 @@
 package ltweb.electronic_store.model;
 
-import java.util.Date;
-
 public class Customer extends User {
 	private int idCust;
 	private String phone;
@@ -13,6 +11,27 @@ public class Customer extends User {
 	public Customer(int idCust, String username, String password, String fullName, String address, String phone) {
 		super(username, password, fullName, address, phone);
 		this.idCust = idCust;
+		this.phone = phone;
+	}
+	public Customer(String username, String password, String fullName, String address, String phone, String gender) {
+		super(username, password, fullName, address, phone);
+		
+		this.phone = phone;
+	}
+	@Override
+	public String toString() {
+		return "Customer [idCust=" + idCust + ", phone=" + phone + ", getGender()=" + getGender() + ", getUsername()="
+				+ getUsername() + ", getPassword()=" + getPassword() + ", getFullName()=" + getFullName()
+				+ ", getAddress()=" + getAddress() + "]";
+	}
+
+	public Customer(String phone) {
+		super();
+		this.phone = phone;
+	}
+
+	public Customer(String username,  String fullName, String address, String phone, String gender) {
+		super(username, fullName, address, phone, gender);
 		this.phone = phone;
 	}
 

@@ -7,28 +7,29 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import ltweb.electronic_store.contants.Queries;
-import ltweb.electronic_store.model.ChitietHoadon;
+import ltweb.electronic_store.model.DetailOrdes;
 import ltweb.electronic_store.model.Product;
-import ltweb.electronic_store.utils.ChitietHoadonConverter;
 import ltweb.electronic_store.utils.DBConnect;
+import ltweb.electronic_store.utils.DetailCartConverter;
+import ltweb.electronic_store.utils.DetailOrderConverter;
 import ltweb.electronic_store.utils.ProductConverter;
 
-public class ChitietHoaDonDAO {
+public class DetailOrderDAO {
 	private Connection conn;
 	private DBConnect db = DBConnect.getInstance();
 
-	public ChitietHoaDonDAO() {
+	public DetailOrderDAO() {
 		this.conn = db.getConnection();
 	}
 	
-	public ArrayList<ChitietHoadon> getByIDHD(int ma) {
-		ArrayList<ChitietHoadon> chitietHD = new ArrayList<ChitietHoadon>();
+	public ArrayList<DetailOrdes> getByIDHD(int ma) {
+		ArrayList<DetailOrdes> chitietHD = new ArrayList<DetailOrdes>();
 		try {
 			PreparedStatement stm = conn.prepareStatement(Queries.GET_CHITIETHOADON_BY_IDHD);
 			stm.setInt(1, ma);
 			ResultSet rs = stm.executeQuery();
 			while (rs.next()) {
-				ChitietHoadon ct = ChitietHoadonConverter.convert(rs);
+				DetailOrdes ct = DetailOrderConverter.convert(rs);
 				Product sp = get_SP_ByCTHD(ct);
 				ct = set_Gia_BySP(sp, ct);
 				chitietHD.add(ct);
@@ -38,7 +39,7 @@ public class ChitietHoaDonDAO {
 		}
 		return chitietHD;
 	}
-	public Product get_SP_ByCTHD(ChitietHoadon cthd) {
+	public Product get_SP_ByCTHD(DetailOrdes cthd) {
 		int maSP = cthd.getIdSP();
 		Product sp = new Product();
 		try {
@@ -54,7 +55,7 @@ public class ChitietHoaDonDAO {
 		return sp;
 	}
 	// cat dat gia tri gia san pham cho chi tiet hoa don
-	public ChitietHoadon set_Gia_BySP(Product sp, ChitietHoadon cthd) {
+	public DetailOrdes set_Gia_BySP(Product sp, DetailOrdes cthd) {
 		double gia = sp.getPrice();
 		String tensp = sp.getName();
 		cthd.setGia(gia);

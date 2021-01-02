@@ -11,5 +11,16 @@ public class URLs {
 	public static final String searchKhachhangByIDHDPath = "/KHByHD";
 	public static final String searchDetailHoaDonPath = "/chitiethoadon";
 	public static final String searchHoaDonByIDPath = "/hoadonByID";
+	public static final String searchOrderCustomer = "/orderByCustomer";
+	public static final String getCart = "/cart";
+	public static final String getListProduct = "/listProduct";
+	public static final String getCartCreated = "/cartCreated";
+	public static final String getCustomer = "/cartCustomer";
+	public static final String getOrder = "/order1";
+	public static final String getOrder2 = "/order2";
+	public static final String getDetailOrder = "/detailOrder";
+	public static final String searchUrl = "http://localhost:8080/electronic-store/search?nameP=";
+	public static final String getCustomer_User = "/customer";
+//	public static final String getCart = "/cart";
 	
 }

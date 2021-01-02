@@ -38,11 +38,10 @@
     color: #0b44c5;
 }
 #tongtienChitietdonhang{
-    float: right;
-    padding-top: 2vw;
-    padding-right: 3vw;
-    /* width: 100%; */
-    font-size: 2.5vw;
+    width: 100%;
+    padding-top: 0vw;
+    padding-left: 75%;
+    font-size: 2.0vw;
 }
 #thongtinChitietdonhang{
     margin-left: 7vw;

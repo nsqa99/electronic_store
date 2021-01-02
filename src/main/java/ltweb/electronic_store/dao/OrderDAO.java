@@ -7,18 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import ltweb.electronic_store.contants.Queries;
-import ltweb.electronic_store.model.ChitietHoadon;
+import ltweb.electronic_store.model.DetailOrdes;
 import ltweb.electronic_store.model.Customer;
 import ltweb.electronic_store.model.Order;
 import ltweb.electronic_store.utils.CustomerConverter;
 import ltweb.electronic_store.utils.DBConnect;
-import ltweb.electronic_store.utils.HoadonConverter;
+import ltweb.electronic_store.utils.OrderConverter;
 
-public class HoadonDAO {
+public class OrderDAO {
 	private Connection conn;
 	private DBConnect db = DBConnect.getInstance();
 
-	public HoadonDAO() {
+	public OrderDAO() {
 		this.conn = db.getConnection();
 	}
 
@@ -29,9 +29,10 @@ public class HoadonDAO {
 			PreparedStatement stm = conn.prepareStatement(Queries.GET_ORDER);
 			ResultSet rs = stm.executeQuery();
 			while (rs.next()) {
-				Order hd = HoadonConverter.convert(rs);
-				hd = setHDByIDKH(hd.getIdCust());
+				Order hd = OrderConverter.convert(rs);
+				hd = setHDByIDKH(hd);
 				hoadon.add(hd);
+				System.out.println("hd "+ hd.toString());
 				
 			}
 		} catch (SQLException e) {
@@ -41,9 +42,9 @@ public class HoadonDAO {
 		return hoadon;
 	}
 	// lay danh dach chi tiet hoa don theo ma hoa don
-	public ArrayList<ChitietHoadon> getAllByIDHD(int ma) {
-		ArrayList<ChitietHoadon> ct = new ArrayList<ChitietHoadon>();
-		ChitietHoaDonDAO dao = new ChitietHoaDonDAO();
+	public ArrayList<DetailOrdes> getAllByIDHD(int ma) {
+		ArrayList<DetailOrdes> ct = new ArrayList<DetailOrdes>();
+		DetailOrderDAO dao = new DetailOrderDAO();
 		ct = dao.getByIDHD(ma);
 		return ct;
 	}
@@ -51,9 +52,9 @@ public class HoadonDAO {
 // lay tong tu chi tiet hoa don tu id cua hoa don da biet
 	public double getTotalByIDKH(int ma) {
 		
-		ArrayList<ChitietHoadon> chitiet = new ArrayList<ChitietHoadon>();
+		ArrayList<DetailOrdes> chitiet = new ArrayList<DetailOrdes>();
 		double total = 0;
-		ChitietHoaDonDAO dao = new ChitietHoaDonDAO();
+		DetailOrderDAO dao = new DetailOrderDAO();
 		chitiet = dao.getByIDHD(ma);
 		if (chitiet.size() > 0) {
 
@@ -67,12 +68,24 @@ public class HoadonDAO {
 		System.out.println(total);
 		return total;
 	}
-
+	public ArrayList<DetailOrdes> getDetailByIDOrder(int ma) {
+		DetailOrdes ct = new DetailOrdes();
+		ArrayList<DetailOrdes> list = new ArrayList<DetailOrdes>();
+		System.out.println("llllllll");
+		
+			DetailOrderDAO dao = new DetailOrderDAO();
+			list = dao.getByIDHD(ma);
+			System.out.println("den day chua");
+		
+//		System.out.println(hoadon.toString());
+		return list;
+	}
+// lay so luong theo id hoa don
 	public int getAmountByIDKH(int ma) {
-		ArrayList<ChitietHoadon> chitietHD = new ArrayList<ChitietHoadon>();
+		ArrayList<DetailOrdes> chitietHD = new ArrayList<DetailOrdes>();
 		
 		int total = 0;
-		ChitietHoaDonDAO dao = new ChitietHoaDonDAO();
+		DetailOrderDAO dao = new DetailOrderDAO();
 		chitietHD = dao.getByIDHD(ma);
 		if (chitietHD.size() > 0) {
 			for (int i = 0; i < chitietHD.size(); i++) {
@@ -85,7 +98,57 @@ public class HoadonDAO {
 		System.out.println(total);
 		return total;
 	}
-
+	public ArrayList<Order> getAllHDByIDKH(int ma) {
+		ArrayList<Order> hoadon = new ArrayList<Order>();
+		
+		try {
+			PreparedStatement stm = conn.prepareStatement(Queries.GET_HOADON_BY_IDKH);
+			stm.setInt(1, ma);
+			
+			ResultSet rs = stm.executeQuery();
+			while(rs.next()) {
+				hoadon.add(OrderConverter.convert(rs));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("danh sach hoa don cua khach hang tim duoc "+ hoadon.toString());
+		return hoadon;
+	}
+	
+	public ArrayList<DetailOrdes> getAllDetailByIDOrder(int ma) {
+		DetailOrdes ct = new DetailOrdes();
+		ArrayList<DetailOrdes> list = new ArrayList<DetailOrdes>();
+		System.out.println("llllllll");
+		ArrayList<Order> hd = getAllHDByIDKH(ma);
+		ArrayList<Order> order = new ArrayList<Order>();
+		for (int i = 0; i < hd.size(); i++) {
+			Order m = hd.get(i);
+			System.out.println(";;;;;;;;;;;;;" + m.toString());
+			m = setHDByIDKH(hd.get(i).getIdCust());
+			System.out.println("m o day " + m.toString());
+			order.add(m);
+		}
+		
+		for (int i = 0; i < hd.size(); i++) {
+			
+			ArrayList<DetailOrdes> od = getDetailByIDOrder(hd.get(i).getIdOrd());
+			System.out.println("ggggggggg" + od.toString());
+			for (int j = 0; j < od.size(); j++) {
+				list.add(od.get(j));
+				System.out.println("lít o day " + list.get(j).toString());
+			}
+		}
+		
+			
+		
+//		System.out.println(hoadon.toString());
+		return list;
+	}
+	
+	
 	// cai dat gia tri gia va so luong cho hoa don
 	public Order getHDByIDKH(int ma) {
 		Order hoadon = new Order();
@@ -94,7 +157,7 @@ public class HoadonDAO {
 			stm.setInt(1, ma);
 			ResultSet rs = stm.executeQuery();
 			rs.next();
-			hoadon = HoadonConverter.convert(rs);
+			hoadon = OrderConverter.convert(rs);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -111,6 +174,14 @@ public class HoadonDAO {
 		hd.setAmount(amount);
 		return hd;
 	}
+	public Order setHDByIDKH(Order hd) {
+//		Order hd = getHDByIDKH(ma);
+		int amount = getAmountByIDKH(hd.getIdOrd());
+		double total = getTotalByIDKH(hd.getIdOrd());
+		hd.setTotal(total);
+		hd.setAmount(amount);
+		return hd;
+	}
 	public Order getHDByIDHD(int ma) {
 		Order hoadon = new Order();
 		try {
@@ -118,7 +189,7 @@ public class HoadonDAO {
 			stm.setInt(1, ma);
 			ResultSet rs = stm.executeQuery();
 			rs.next();
-			hoadon = HoadonConverter.convert(rs);
+			hoadon = OrderConverter.convert(rs);
 			hoadon = setHDByIDKH(hoadon.getIdCust());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -136,7 +207,7 @@ public class HoadonDAO {
 			stm.setInt(1, ma);
 			ResultSet rs = stm.executeQuery();
 			rs.next();
-			hoadon = HoadonConverter.convert(rs);
+			hoadon = OrderConverter.convert(rs);
 			System.out.println(hoadon.toString()+" hoa don");
 			PreparedStatement stm1 = conn.prepareStatement(Queries.GET_CUSTOMER_BY_ID);
 			stm1.setInt(1, hoadon.getIdCust());

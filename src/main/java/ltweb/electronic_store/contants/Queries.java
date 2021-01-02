@@ -11,6 +11,7 @@ public class Queries {
 	public static final String GET_ORDER = GET + "Hoadon";
 	public static final String GET_CART = GET + "Giohang";
 	public static final String GET_CHITIETHOADON = GET + "ChitietHD";
+	public static final String GET_DETAILCART = GET + "ChitietGH";
 	
 	// get by id
 	public static final String GET_CUSTOMER_BY_ID = GET_CUSTOMER + " " + CONDITION + "MaKhach = ?";
@@ -18,9 +19,17 @@ public class Queries {
 	public static final String GET_ORDER_BY_ID = GET_ORDER + " " + CONDITION + "MaHD = ?";
 	public static final String GET_HOADON_BY_IDHD = GET_ORDER + " " + CONDITION + "MaHD = ?";
 	public static final String GET_HOADON_BY_IDKH = GET_ORDER + " " + CONDITION + "MaKH = ?";
+
+	public static final String GET_CART_BY_ID = GET_CART + " " + CONDITION + "MaKH = ?";
 	public static final String GET_CHITIETHOADON_BY_IDHD = GET_CHITIETHOADON + " " + CONDITION + "MaHD = ?";
+	public static final String GET_DETAILCART_BY_IDGH = GET_DETAILCART + " " + CONDITION + "MaGH = ?";
 	
 
 	// search product by name
 	public static final String GET_PRODUCT_BY_NAME = GET_PRODUCT + " " + CONDITION + "TenSP LIKE ?";
+	
+	//insert
+		public static final String INSERT_HOADON = "insert Hoadon (MaKH, Ngaylap) values"+"(?, ?)";
+		public static final String INSERT_DETAIL_ORDER = "insert ChitietHD (MaHD, MaSP, TenSP, Soluong,Gia) values"+"(?,?,?,?,?)";
+	
 }

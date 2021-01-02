@@ -12,6 +12,16 @@ public class Order {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public Order(int idCust, String createdDate, double total, int amount) {
+		super();
+		this.idCust = idCust;
+		this.createdDate = createdDate;
+		this.total = total;
+		this.amount = amount;
+	}
+
+
 	public Order(int idOrd, int idCust, String createdDate, double total,int amount) {
 		super();
 		this.idOrd = idOrd;
@@ -24,6 +34,13 @@ public class Order {
 	public int getIdOrd() {
 		return idOrd;
 	}
+
+	@Override
+	public String toString() {
+		return "Order [idOrd=" + idOrd + ", idCust=" + idCust + ", createdDate=" + createdDate + ", total=" + total
+				+ ", amount=" + amount + "]";
+	}
+
 
 	public void setIdOrd(int idOrd) {
 		this.idOrd = idOrd;

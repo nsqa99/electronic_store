@@ -9,16 +9,17 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import ltweb.electronic_store.dao.HoadonDAO;
+import ltweb.electronic_store.dao.OrderDAO;
 import ltweb.electronic_store.model.Customer;
+import ltweb.electronic_store.model.DetailOrdes;
 import ltweb.electronic_store.model.Order;
 
 @Path("/hoadon")
 @Produces(MediaType.APPLICATION_JSON)
-public class HoadonResource {
+public class OrderResource {
 	
 	
-		private HoadonDAO dao = new HoadonDAO();
+		private OrderDAO dao = new OrderDAO();
 
 		@GET
 		@Path("/Allhoadon")
@@ -62,5 +63,24 @@ public class HoadonResource {
 				return Response.status(500).build();
 			}
 		}
+		@GET
+		@Path("/orderByCustomer")
+		public Response getOrderByCustomer(@QueryParam("name") String name) {
+			System.out.println("dfthgrtgdkffjgoie");
+			int ma = Integer.parseInt(name);
+			System.out.println(ma+" ma");
+			ArrayList<DetailOrdes> list = dao.getAllDetailByIDOrder(ma);
+//			System.out.println(order.toString());
+			if (list != null) {
+				System.out.println("Doi tuong"+ list.toString());
+				System.out.println(Response.ok().entity(list).build());
+				return Response.ok().entity(list).build();
+				
+			} else {
+				return Response.status(500).build();
+			}
+		}
+		
+		
 		
 }

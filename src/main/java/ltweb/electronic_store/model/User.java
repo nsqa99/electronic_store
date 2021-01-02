@@ -23,6 +23,14 @@ public class User {
 		this.gender = gender;
 	}
 
+	public User(String username, String fullName, String address, String gender) {
+		super();
+		this.username = username;
+		this.fullName = fullName;
+		this.address = address;
+		this.gender = gender;
+	}
+
 	public String getGender() {
 		return gender;
 	}

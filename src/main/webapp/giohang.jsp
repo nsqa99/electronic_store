@@ -65,9 +65,12 @@
        
     </div> 
     <div class="total">
+         <form action="<%=request.getContextPath()%>/CartServlet1" method = "get">
         <div class="total__cost">Total: <span id="totalCost"></span> VND</div>
-        <a href="checkout.html" class="button" id="checkoutBtn">Đặt hàng</a>
+        <input type = "submit" class="button" id="checkoutBtn" value = "Đặt hàng"/>
+        </form>
     </div>
+    
     <script src="./Javscrips/giohang.js"></script>
 </body>
 </html>

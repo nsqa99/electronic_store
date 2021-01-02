@@ -17,10 +17,40 @@
   	<servlet-class>ltweb.electronic_store.controller.OrderServlet</servlet-class>
   </servlet>
   <servlet>
+  	<servlet-name>WebOrderServlet</servlet-name>
+  	<display-name>WebOrderServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.WebOrderServlet</servlet-class>
+  </servlet>
+  <servlet>
   	<servlet-name>DetailOrderServlet</servlet-name>
   	<display-name>DetailOrderServlet</display-name>
   	<description></description>
   	<servlet-class>ltweb.electronic_store.controller.DetailOrderServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CartServlet1</servlet-name>
+  	<display-name>CartServlet1</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.CartServlet1</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>WebOrderServlet1</servlet-name>
+  	<display-name>WebOrderServlet1</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.WebOrderServlet1</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EditInfoCus</servlet-name>
+  	<display-name>EditInfoCus</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.EditInfoCus</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EditCustomer</servlet-name>
+  	<display-name>EditCustomer</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.EditCustomer</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>SearchServlet</servlet-name>
@@ -30,8 +60,29 @@
   	<servlet-name>OrderServlet</servlet-name>
   	<url-pattern>/OrderServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>WebOrderServlet</servlet-name>
+  	<url-pattern>/WebOrderServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>DetailOrderServlet</servlet-name>
   	<url-pattern>/DetailOrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CartServlet1</servlet-name>
+  	<url-pattern>/CartServlet1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>WebOrderServlet1</servlet-name>
+  	<url-pattern>/WebOrderServlet1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EditInfoCus</servlet-name>
+  	<url-pattern>/EditInfoCus</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EditCustomer</servlet-name>
+  	<url-pattern>/EditCustomer</url-pattern>
   </servlet-mapping>
 </web-app>
