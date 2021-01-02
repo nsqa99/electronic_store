@@ -38,8 +38,6 @@ public class Queries {
 		public static final String INSERT_DETAIL_ORDER = "insert ChitietHD (MaHD, MaSP, TenSP, Soluong,Gia) values"+"(?,?,?,?,?)";
 	
 
-	// search product by name
-	public static final String GET_PRODUCT_BY_NAME = GET_PRODUCT + " " + CONDITION + "TenSP LIKE ?";
 	// pagin product
 	public static final String GET_PRODUCT_WITH_PAGIN = GET_PRODUCT + " LIMIT ?, ?";
 	public static final String GET_PRODUCT_BY_NAME_WITH_PAGIN = GET_PRODUCT + " " + CONDITION + "TenSP LIKE ? "
