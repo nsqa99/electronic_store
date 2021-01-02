@@ -23,6 +23,7 @@ public class Order {
 
 
 	public Order(int idOrd, int idCust, String createdDate, double total,int amount) {
+
 		super();
 		this.idOrd = idOrd;
 		this.idCust = idCust;

@@ -1,6 +1,5 @@
 package ltweb.electronic_store.model;
 
-import java.util.Date;
 
 public class User {
 
@@ -9,13 +8,13 @@ public class User {
 	private String fullName;
 	private String address;
 	private String gender;
+	private String dob;
 
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public User(String username, String password, String fullName, String address, String gender) {
-		super();
 		this.username = username;
 		this.password = password;
 		this.fullName = fullName;
@@ -30,6 +29,15 @@ public class User {
 		this.address = address;
 		this.gender = gender;
 	}
+	
+	public User(String username, String password, String fullName, String address, String gender, String dob) {
+		this.username = username;
+		this.password = password;
+		this.fullName = fullName;
+		this.address = address;
+		this.gender = gender;
+		this.dob = dob;
+	}
 
 	public String getGender() {
 		return gender;
@@ -39,6 +47,13 @@ public class User {
 		this.gender = gender;
 	}
 
+	public String getDob() {
+		return dob;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
 
 	public String getUsername() {
 		return username;

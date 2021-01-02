@@ -2,10 +2,10 @@ package ltweb.electronic_store.contants;
 
 public class URLs {
 
-	public static final String baseUrl = "http://localhost:8085/electronic-store/api";
+	public static final String baseUrl = "http://localhost:8080/electronic-store/api";
 	public static final String productPath = "/products";
 	public static final String searchPath = "/search";
-	
+
 	public static final String searchHoaDonPath = "/hoadon";
 	public static final String searchAllHoaDonPath = "/Allhoadon";
 	public static final String searchKhachhangByIDHDPath = "/KHByHD";
@@ -23,4 +23,5 @@ public class URLs {
 	public static final String getCustomer_User = "/customer";
 //	public static final String getCart = "/cart";
 	
+	public static final String DELETE_ADMIN_PATH = "deletead/{adminId}";
 }
