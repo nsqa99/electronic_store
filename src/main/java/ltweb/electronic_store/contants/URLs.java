@@ -13,4 +13,6 @@ public class URLs {
 	public static final String searchHoaDonByIDPath = "/hoadonByID";
 
 	public static final String searchUrl = "http://localhost:8080/electronic-store/search?nameP=";
+	
+	public static final String DELETE_ADMIN_PATH = "deletead/{adminId}";
 }

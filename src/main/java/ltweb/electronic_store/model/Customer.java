@@ -16,6 +16,13 @@ public class Customer extends User {
 		this.phone = phone;
 	}
 
+	public Customer(int idCust, String username, String password, String fullName, String address, String phone,
+			String dob) {
+		super(username, password, fullName, address, phone, dob);
+		this.idCust = idCust;
+		this.phone = phone;
+	}
+
 	public int getIdCust() {
 		return idCust;
 	}

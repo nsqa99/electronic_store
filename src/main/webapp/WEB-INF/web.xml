@@ -38,6 +38,12 @@
   	<servlet-class>ltweb.electronic_store.controller.ProductFilterServlet</servlet-class>
   </servlet>
   <servlet-mapping>
+  	<servlet-name>DeleteAdminServlet</servlet-name>
+  	<display-name>DeleteAdminServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.DeleteAdminServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
   	<servlet-name>SearchServlet</servlet-name>
   	<url-pattern>/search</url-pattern>
   </servlet-mapping>
@@ -59,5 +65,10 @@
   <servlet-mapping>
   	<servlet-name>ProductFilterServlet</servlet-name>
   	<url-pattern>/filter</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>DeleteAdminServlet</servlet-name>
+  	<url-pattern>/DeleteAdminServlet</url-pattern>
   </servlet-mapping>
 </web-app>
