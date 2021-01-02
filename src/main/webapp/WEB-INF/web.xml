@@ -11,37 +11,76 @@
   	<servlet-class>ltweb.electronic_store.controller.SearchServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>ResgisterServlet</servlet-name>
+	<servlet-name>AdminServlet</servlet-name>
+  	<display-name>AdminServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.AdminServlet</servlet-class>
+  </servlet>
+  <servlet>
+	<servlet-name>ResgisterServlet</servlet-name>
   	<display-name>ResgisterServlet</display-name>
   	<description></description>
   	<servlet-class>ltweb.electronic_store.controller.ResgisterServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>AddCartServlet</servlet-name>
-  	<display-name>AddCartServlet</display-name>
+  	
+  	<servlet-name>OrderServlet</servlet-name>
+  	<display-name>OrderServlet</display-name>
   	<description></description>
-  	<servlet-class>ltweb.electronic_store.controller.AddCartServlet</servlet-class>
+  	<servlet-class>ltweb.electronic_store.controller.OrderServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>DetailOrderServlet</servlet-name>
+  	<display-name>DetailOrderServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.DetailOrderServlet</servlet-class>
+  	
   </servlet>
   <servlet>
-  	<servlet-name>DeleteitemSevervlet</servlet-name>
-  	<display-name>DeleteitemSevervlet</display-name>
+  	<servlet-name>ProductFilterServlet</servlet-name>
+  	<display-name>ProductFilterServlet</display-name>
   	<description></description>
-  	<servlet-class>ltweb.electronic_store.controller.DeleteitemSevervlet</servlet-class>
+  	<servlet-class>ltweb.electronic_store.controller.ProductFilterServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-  	<servlet-name>SearchServlet</servlet-name>
-  	<url-pattern>/search</url-pattern>
-  </servlet-mapping>
+  <servlet>
+  	<servlet-name>DeleteAdminServlet</servlet-name>
+  	<display-name>DeleteAdminServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.DeleteAdminServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ResgisterServlet</servlet-name>
   	<url-pattern>/ResgisterServlet</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>AddCartServlet</servlet-name>
-  	<url-pattern>/AddCartServlet</url-pattern>
+   <servlet-mapping>
+  	<servlet-name>SearchServlet</servlet-name>
+  	<url-pattern>/search</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
-  	<servlet-name>DeleteitemSevervlet</servlet-name>
-  	<url-pattern>/DeleteitemSevervlet</url-pattern>
+  	
+  	<servlet-name>OrderServlet</servlet-name>
+  	<url-pattern>/OrderServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>AdminServlet</servlet-name>
+  	<url-pattern>/AdminServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+  	<servlet-name>DetailOrderServlet</servlet-name>
+  	<url-pattern>/DetailOrderServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>ProductFilterServlet</servlet-name>
+  	<url-pattern>/filter</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>DeleteAdminServlet</servlet-name>
+  	<url-pattern>/DeleteAdminServlet</url-pattern>
   </servlet-mapping>
 </web-app>

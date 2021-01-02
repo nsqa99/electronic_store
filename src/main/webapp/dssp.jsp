@@ -1,3 +1,5 @@
+<%@page import="ltweb.electronic_store.contants.Settings"%>
+<%@page import="ltweb.electronic_store.contants.URLs"%>
 <%@page import="ltweb.electronic_store.model.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -19,11 +21,79 @@
             </form>
         </div>
         <% ArrayList<Product> products = (ArrayList<Product>) request.getSession().getAttribute("products");
+        	int total = (int) request.getSession().getAttribute("total");
+        	int size = (int) request.getSession().getAttribute("size");
+        	String type = (String) request.getSession().getAttribute("type");
+        	
+        	System.out.println("type: " + type);
         	if (products != null) {
         		
 	        	if (products.size() == 0) { %>
-	        		
-	        	<% } else { %>
+	        		<h1>Không tìm thấy sản phẩm nào</h1>
+	        	<% } else { 
+					//System.out.println("size" + products.size() + "query size" + Settings.PAGE_SIZE); %>
+					<div class="filters">
+						
+						<form action="<%=request.getContextPath()%>/filter" method="GET">
+							<label for="type" style="font-size: 1.2rem;">Phân loại:</label>
+							<select name="type" id="productType" onchange="this.form.submit()">
+								<option disabled selected value>Loại sản phẩm</option>
+								<option 
+									<% if(type != null) { %> 
+										<% if (type.equals("laptop")) { %>
+											selected
+										<% } %> 
+									<%} %>
+									value="laptop">Laptop</option>
+								
+								<option 
+									<% if(type != null) { %> 
+										<% if (type.equals("mobile")) { %>
+											selected
+										<% } %> 
+									<%} %>
+									value="mobile">Điện thoại</option>
+							</select>
+							<input hidden name="nameP" value="<%=request.getParameter("nameP")%>">
+						</form>
+						
+						<form 
+							action=
+							"<%=request.getContextPath()%>/
+							<%if(type == null){ %>
+							search
+							<%} else { %>
+							filter
+							<%} %>" 
+							method="GET">
+							<select name="size" id="pageSize" onchange="this.form.submit()">
+								<option disabled selected value>Hiển thị</option>
+								<option 
+									<% if(size != 0) { %> 
+										<% if (size == 5) { %>
+											selected
+										<% } %> 
+									<%} %>
+									value="5">5 sản phẩm</option>
+								<option 
+									<% if(size != 0) { %> 
+										<% if (size == 10) { %>
+											selected
+										<% } %> 
+									<%} %>
+									value="10">10 sản phẩm</option>
+								<option 
+									<% if(size != 0) { %> 
+										<% if (size == 15) { %>
+											selected
+										<% } %> 
+									<%} %>
+									value="15">15 sản phẩm</option>
+								
+							</select>
+							<input hidden name="nameP" value="<%=request.getParameter("nameP")%>">
+						</form>
+					</div>
 	        		<div class="dssp">
 			        	<% 
 			        		for(Product product: products) {
@@ -39,18 +109,40 @@
 					          
 			        	<% } %>
 	        		</div>
-	        	<div class="pagination">
-			            <a href="#">&laquo;</a>
-			            <a class="active" href="#">1</a>
-			            <a href="#">2</a>
-			            <a href="#">3</a>
-			            <a href="#">4</a>
-			            <a href="#">5</a>
-			            <a href="#">6</a>
-			            <a href="#">&raquo;</a>
-			       	</div>  
+	        	<% 
+	        		int currentPage = (int) request.getSession().getAttribute("page");
+	        		//System.out.print("current " + currentPage);
+	        		String nameQuery = (String) request.getSession().getAttribute("nameQuery");
+	        		if (nameQuery == null) nameQuery = "";
+	        		nameQuery = nameQuery.replace(" ", "+"); 
+	        		
+	        		%>
+		        	<div class="pagination">
+		        		
+		        	  <%
+		        	  	//System.out.println("page size: " + Settings.PAGE_SIZE + ", total page: " + Math.ceil((double)total/(double)Settings.PAGE_SIZE));
+		        	  	for(int i=1; i<=Math.ceil((double)total/(double)Settings.PAGE_SIZE); i++) {
+		        			if(currentPage == i) {%>
+		        				<a 
+		        				class="active"
+				        	  	id="page<%=i %>"
+				        		href="<%=URLs.searchUrl%><%=nameQuery%>&page=<%=i %>&size=<%=Settings.PAGE_SIZE%>">
+				        		<%=i %>
+				        		</a> 
+		        			<%} else { %>
+				        	  	<a 
+				        	  	id="page<%=i %>"
+				        		href="<%=URLs.searchUrl%><%=nameQuery%>&page=<%=i %>&size=<%=Settings.PAGE_SIZE%>">
+				        		<%=i %>
+				        		</a> 
+		        		<%} %>
+		        	  <% } %>
+		        	  
+				    </div>  
+			    
 	        <% } %>
-	       <% } %>
+	  <% } %>
+	       
     </div>
 </body>
 </html>

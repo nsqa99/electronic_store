@@ -18,21 +18,21 @@
 .danhsachmadonhang{
     float: left;
     color: #0759ef;
-    width: 15%;
+    width: 20%;
 }
 .danhsachsanpham{
     color: #0759ef;
     float: left;
-    width: 35%;
+    width: 20%;
 }
 .danhsachtongtien{
     color: #0759ef;
     float: left;
-    width: 15%;
+    width:20%;
 }
 .danhsachngay{
     color: #0759ef;
-    width: 15%;
+    width: 20%;
     float: left;
 }
 .btXemchitiet{
@@ -46,18 +46,18 @@
      
 }
 .dsmadonhang1{
-    width: 15%;
+    width: 20%;
     float: left;
 }
 .dssanpham1{
     float: left;
-    width: 35%;
+    width: 20%;
 }
 .dstongtien1{
     float: left;
-    width: 15%;
+    width: 20%;
 }
 .dsngay1{
-    width: 15%;
+    width: 20%;
     float: left;
 }

@@ -9,8 +9,15 @@ public class Customer extends User {
 	
 	}
 
-	public Customer(int idCust, String username, String password, String fullName,  String gender, String phone,String address) {
-		super(username, password, fullName, gender,address);
+	public Customer(int idCust, String username, String password, String fullName, String address, String phone) {
+		super(username, password, fullName, address, phone);
+		this.idCust = idCust;
+		this.phone = phone;
+	}
+
+	public Customer(int idCust, String username, String password, String fullName, String address, String phone,
+			String dob) {
+		super(username, password, fullName, address, phone, dob);
 		this.idCust = idCust;
 		this.phone = phone;
 	}
