@@ -8,7 +8,6 @@ import ltweb.electronic_store.model.Admin;
 
 public class AdminConverter {
 
-	
 	public static Admin convert(ResultSet rs) throws SQLException {
 		int idAdmin = rs.getInt("MaAdmin");
 		String tendnAdmin = rs.getString("Tendangnhap");
@@ -16,10 +15,12 @@ public class AdminConverter {
 		String role = rs.getString("Quyen");
 		String ten = rs.getString("Ten");
 		String gioitinh = rs.getString("Gioitinh");
-		String ngaysinh = rs.getDate("Ngaysinh").toString();
+		Date ngaysinh = rs.getDate("Ngaysinh");
+		String ns = (ngaysinh != null) ? ngaysinh.toString() : null;
 		String diachi = rs.getString("Diachi");
-		
-		
-		return new Admin(tendnAdmin, passAdmin, ten, diachi,gioitinh, ngaysinh, idAdmin, role);
+		// System.out.println("admin: " + idAdmin + tendnAdmin + passAdmin + ten +
+		// diachi + gioitinh + ngaysinh + diachi);
+
+		return new Admin(tendnAdmin, passAdmin, ten, diachi, gioitinh, ns, idAdmin, role);
 	}
 }
