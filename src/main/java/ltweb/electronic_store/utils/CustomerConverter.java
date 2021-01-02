@@ -14,6 +14,7 @@ public class CustomerConverter {
 		String fullName = rs.getString("TenKH");
 		String address = rs.getString("Diachi");
 		String phone = rs.getString("SDT");
-		return new Customer(idCust, username, password, fullName, address, phone);
+		String dob = rs.getDate("Ngaysinh").toString();
+		return new Customer(idCust, username, password, fullName, address, phone,dob);
 	}
 }
