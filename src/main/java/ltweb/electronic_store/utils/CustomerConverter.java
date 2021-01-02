@@ -10,11 +10,10 @@ public class CustomerConverter {
 		String username = rs.getString("TenTK");
 		String password = rs.getString("MK");
 		String fullName = rs.getString("TDD");
-		String address = rs.getString("DC");
-		String phone = rs.getString("DT");
 		String gender = rs.getString("GT");
-		
-		return new Customer(idCust, username, password, fullName, address, phone,gender);
+		String phone = rs.getString("DT");
+		String address = rs.getString("DC"); 
+		return new Customer(idCust, username, password, fullName,gender, phone,address);
 	}
 
 }

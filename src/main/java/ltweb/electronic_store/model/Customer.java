@@ -9,12 +9,12 @@ public class Customer extends User {
 	
 	}
 
-	public Customer(int idCust, String username, String password, String fullName, String address, String phone, String gender) {
-		super(username, password, fullName, address,gender);
+	public Customer(int idCust, String username, String password, String fullName,  String gender, String phone,String address) {
+		super(username, password, fullName, gender,address);
 		this.idCust = idCust;
 		this.phone = phone;
 	}
-	public Customer(String username, String password, String fullName, String address, String phone, String gender) {
+	public Customer(String username, String password, String fullName,String gender, String phone, String address ) {
 		super(username, password, fullName, address,gender);
 //		this.idCust = idCust;
 		this.phone = phone;
@@ -34,5 +34,6 @@ public class Customer extends User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
 
 }

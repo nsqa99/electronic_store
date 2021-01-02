@@ -1,6 +1,6 @@
 package ltweb.electronic_store.restapi;
 
-import java.sql.Connection;
+import java.util.ArrayList;
 
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -17,17 +17,13 @@ import ltweb.electronic_store.model.Customer;
 	private CustomerDAO dao = new CustomerDAO();
 	@POST
 	 public Response resgister(Customer cus) throws  ClassNotFoundException {
-		
-		Customer kh = dao.getByName(cus.getUsername(), cus.getPassword(), cus.getFullName(), cus.getGender(), cus.getAddress(), cus.getPhone());
-		if (cus != null) {
-			return Response.ok().entity(kh).build();
-			
-		} else {
-			return Response.status(500).build();
-		}
+				 int res = dao.addCust(cus);
+				 if (res == 1) return Response.status(201).build();
+				 return Response.status(500).build();
+			 }
  		
     }
 
-}
+
 
 

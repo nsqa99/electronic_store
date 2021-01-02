@@ -20,5 +20,8 @@ public class Queries {
 
 	// search product by name
 	public static final String GET_PRODUCT_BY_NAME = GET_PRODUCT + " " + CONDITION + "TenSP LIKE ?";
-	public static final String ADD_CUSTOMER = ADD + "Khach VALUES ( ?, ?, ?, ?, ?, ?)";
+	public static final String ADD_CUSTOMER = ADD + "Khach VALUES (null,?, ?, ?, ?, ?, ?,null)";
+	
+	public static final String ADD_PRODUCT = ADD + "sanpham (MaSP,TenSP,Giadagiam,Giaban,Soluong,Hinhanh,Manhinh,HDH,CPU,RAM,ROM,Pin,BaoHanh) VALUES(null, ?, ? , ? , ? , ?, ?, ?, ?, ?, ?, ?, ? )";
+
 }

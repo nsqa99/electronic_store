@@ -11,6 +11,7 @@ public class User {
 	private String gender;
 
 
+
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
@@ -22,7 +23,6 @@ public class User {
 		this.fullName = fullName;
 		this.address = address;
 		this.gender = gender;
-	
 	}
 
 	public String getGender() {
@@ -64,5 +64,6 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 
 }

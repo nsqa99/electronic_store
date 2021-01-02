@@ -16,6 +16,18 @@
   	<description></description>
   	<servlet-class>ltweb.electronic_store.controller.ResgisterServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AddCartServlet</servlet-name>
+  	<display-name>AddCartServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.AddCartServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteitemSevervlet</servlet-name>
+  	<display-name>DeleteitemSevervlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.DeleteitemSevervlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>SearchServlet</servlet-name>
   	<url-pattern>/search</url-pattern>
@@ -23,5 +35,13 @@
   <servlet-mapping>
   	<servlet-name>ResgisterServlet</servlet-name>
   	<url-pattern>/ResgisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddCartServlet</servlet-name>
+  	<url-pattern>/AddCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteitemSevervlet</servlet-name>
+  	<url-pattern>/DeleteitemSevervlet</url-pattern>
   </servlet-mapping>
 </web-app>

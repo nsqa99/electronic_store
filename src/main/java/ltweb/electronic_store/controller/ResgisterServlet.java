@@ -1,9 +1,13 @@
 package ltweb.electronic_store.controller;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,10 +19,13 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.sun.research.ws.wadl.Request;
+
 import ltweb.electronic_store.contants.URLs;
+import ltweb.electronic_store.dao.CustomerDAO;
 import ltweb.electronic_store.model.Customer;
 
-
+@WebServlet("/resgister")
 public class ResgisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,31 +43,32 @@ public class ResgisterServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String repassword = request.getParameter("repassword");
+	    String password = request.getParameter("password");
+        String password1=null;
+		try {
+			password1 = CustomerDAO.Valadate(password);
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String phone= request.getParameter("phone");
 		String address = request.getParameter("address");
+
 		String fullname = request.getParameter("fullname");
 		String gender = request.getParameter("gender");
-        Customer cus = new Customer(username, repassword, fullname, address, phone, gender);
+        Customer cus = new Customer(username, password1, fullname,gender, phone, address);
 		Client client = ClientBuilder.newClient();
+        Response res = client.target(URLs.baseUrl + URLs.resgisterPath ).request(MediaType.APPLICATION_JSON).post(Entity.json(cus));
+		    if (res.getStatus()!= 400) {
 		
-		
-		
-		Response res = client.target(URLs.baseUrl + URLs.resgisterPath ).request(MediaType.APPLICATION_JSON).post(Entity.json(cus));
-		
-		 
-	     
-			
-			if (res.getStatus()!= 400) {
-				HttpSession session = request.getSession(true);
-				session.setAttribute("successMessage", "Register success");
-				request.getRequestDispatcher("login.jsp").forward(request, response);
-			} else {
+		    	    HttpSession session = request.getSession(true);
+				    session.setAttribute("successMessage", "Register success");
+				    request.getRequestDispatcher("login.jsp").forward(request, response); 
+			}else {
 				request.setAttribute("errorMessage", "Error");
-				request.getRequestDispatcher("registration.jsp").forward(request, response);
-			}
-
+				request.getRequestDispatcher("registration.jsp").forward(request, response); }
+     
 	}
-
 }
+
+
