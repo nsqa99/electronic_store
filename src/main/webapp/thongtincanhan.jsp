@@ -1,3 +1,4 @@
+<%@page import="ltweb.electronic_store.contants.URLs"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="ltweb.electronic_store.model.*" %>
 <%@page import="java.util.ArrayList"%>
@@ -50,10 +51,11 @@
                 <% } %>
                 <% } %>
                 <% } %>
-                <button class="luu" onclick="quay_lai_trang_truoc()">Về trang chủ</button>
+                 <a href="<%=URLs.uri%>">Về trang chủ</button>
                  <button class="luu">Cập nhật</button>
                
             </form>
+            
 
           </div>
      </div>
