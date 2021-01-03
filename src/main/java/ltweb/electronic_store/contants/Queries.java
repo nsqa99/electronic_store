@@ -59,7 +59,7 @@ public class Queries {
 			+ "LIMIT ?, ?";
 	public static final String GET_MOBILE_BY_NAME_WITH_PAGIN = GET_MOBILE + " " + CONDITION + "sp.TenSP LIKE ? "
 			+ "LIMIT ?, ?";
-
+	
 	public static final String GET_TOTAL_PRODUCT = "SELECT COUNT(MaSP) FROM Sanpham";
 
 	public static final String GET_TOTAL_PRODUCT_BY_NAME = "SELECT COUNT(MaSP) AS numberOfProducts FROM Sanpham "
