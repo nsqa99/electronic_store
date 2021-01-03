@@ -16,12 +16,15 @@ public class CookieUtils {
 		Cookie[] cookies = request.getCookies();
 
 		Cookie tokenCookie = null;
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("auth_token") && cookie.getValue().equals(authToken)) {
-				// System.out.print("Yo");
-				tokenCookie = cookie;
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("auth_token") && cookie.getValue().equals(authToken)) {
+					// System.out.print("Yo");
+					tokenCookie = cookie;
+				}
 			}
 		}
+
 		return tokenCookie != null;
 	}
 

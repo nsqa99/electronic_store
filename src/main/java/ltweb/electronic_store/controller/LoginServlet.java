@@ -58,8 +58,14 @@ public class LoginServlet extends HttpServlet {
 		Client client = ClientBuilder.newClient();
 		Response res = client.target(URLs.baseUrl + URLs.loginPath).request().post(Entity.json(data));
 		if (res.getStatus() != 401) {
-			String token = SecurityUtils.createJWT(username);
-			request.getSession().setAttribute("auth-token", token);
+			String token = res.getHeaderString("Authorization");
+			String tokenAuth = null;
+			if (token != null) {
+				tokenAuth = token.substring("Bearer ".length());
+				request.getSession().setAttribute("auth-token", tokenAuth);
+
+			}
+
 			Cookie[] cookies = request.getCookies();
 			Cookie tokenCookie = null;
 			for (Cookie cookie : cookies) {
@@ -69,7 +75,7 @@ public class LoginServlet extends HttpServlet {
 
 			}
 			if (tokenCookie == null) {
-				tokenCookie = CookieUtils.setCookie(token);
+				tokenCookie = CookieUtils.setCookie(tokenAuth);
 				response.addCookie(tokenCookie);
 			}
 			response.sendRedirect("index.jsp");
