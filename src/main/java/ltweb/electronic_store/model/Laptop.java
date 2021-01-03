@@ -16,6 +16,13 @@ public class Laptop extends Product {
 		this.VGA = VGA;
 	}
 
+	public Laptop(String name, double discountedPrice, double price, int amount, String image, String screen, String os,
+			String cpu, String ram, String rom, String battery, String warranty, String camera, String VGA) {
+		super(name, discountedPrice, price, amount, image, screen, os, cpu, ram, rom, battery, warranty);
+		this.camera = camera;
+		this.VGA = VGA;
+	}
+
 	public String getCamera() {
 		return camera;
 	}

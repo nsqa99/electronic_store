@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bán hàng điện tử</title>
   <link rel="stylesheet" href="./style/Adminpage.css">
-  <script type="text/javascript" src="./Javscrips/Adminpage.js"></script>
+  
   <!-- <link rel="stylesheet" href="danhsachdonhang.css"> -->
   <link rel="stylesheet" href="css/font-awesome.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -111,15 +111,21 @@
                     <!-- them san pham -->
                     <div id = "themSanPham">
                         <div id  = "titleThemSP">
-                            <h1> Them san pham </h1>
+                            <h1> Thêm sản phẩm </h1>
                         </div>
                         <div id = "formThemSP">
-                            <input type="text" class="TextThemSP" placeholder="Anh san pham">
-                            <input type="text" class="TextThemSP" placeholder="Nhan ten san pham">
-                            <input type="text" class="TextThemSP" placeholder="Nhap mo ta san pham">
-                            <input type="text" class="TextThemSP" placeholder="Nhap gia san pham">
-                            <input type="text" class="TextThemSP" placeholder="Nhap so luong san pham"><br>
-                            <input type="button" id="btnThemSP1" value="Xong"> 
+                        <form action="<%=request.getContextPath()%>/ProductServlet" method="POST">
+                            <label for="type">Loại sản phẩm: </label>
+                        	<select name="type" id="productType" onchange="render(this.value)">
+                        		<option disabled selected value>Loại sản phẩm</option>
+                        		<option selected value="laptop">Laptop</option>
+                        		<option value="mobile">Điện thoại</option>
+                        	</select>
+                        	<div id="contentP"></div>
+                        	<input type="submit" id="btnThemSP1" value="Thêm">
+                        </form>
+                            
+                             
                         </div>
                     </div>
                 </div>
@@ -237,6 +243,6 @@
                     </div>
                 </div>
             </div>
- 
+<script type="text/javascript" src="./Javscrips/Adminpage.js"></script>
 </body>
 </html>

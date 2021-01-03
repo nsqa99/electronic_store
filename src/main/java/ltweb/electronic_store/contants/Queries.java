@@ -24,14 +24,15 @@ public class Queries {
 	public static final String GET_HOADON_BY_IDHD = GET_ORDER + " " + CONDITION + "MaHD = ?";
 	public static final String GET_HOADON_BY_IDKH = GET_ORDER + " " + CONDITION + "MaKH = ?";
 	public static final String GET_CHITIETHOADON_BY_IDHD = GET_CHITIETHOADON + " " + CONDITION + "MaHD = ?";
-
+	public static final String GET_ONE_PRODUCT_BY_NAME = GET_PRODUCT + " " + CONDITION + "TenSP = ?";
 	// search product by name
 	public static final String GET_PRODUCT_BY_NAME = GET_PRODUCT + " " + CONDITION + "TenSP LIKE ?";
 	public static final String ADD_CUSTOMER = ADD + "Khach VALUES (null,?, ?, ?, ?, ?, ?,null)";
 
 	public static final String ADD_PRODUCT = ADD
-			+ "sanpham (MaSP,TenSP,Giadagiam,Giaban,Soluong,Hinhanh,Manhinh,HDH,CPU,RAM,ROM,Pin,BaoHanh) VALUES(null, ?, ? , ? , ? , ?, ?, ?, ?, ?, ?, ?, ? )";
-
+			+ "Sanpham (MaSP,TenSP,Giadagiam,Giaban,Soluong,Hinhanh,Manhinh,HDH,CPU,RAM,ROM,Pin,BaoHanh) VALUES(null, ?, ? , ? , ? , ?, ?, ?, ?, ?, ?, ?, ? )";
+	public static final String ADD_LAPTOP = ADD + "Laptop VALUES(?, ?, ?)";
+	public static final String ADD_MOIBLE = ADD + "Dienthoai VALUES(?, ?, ?)";
 	// pagin product
 	public static final String GET_PRODUCT_WITH_PAGIN = GET_PRODUCT + " LIMIT ?, ?";
 	public static final String GET_PRODUCT_BY_NAME_WITH_PAGIN = GET_PRODUCT + " " + CONDITION + "TenSP LIKE ? "

@@ -2,7 +2,9 @@ package ltweb.electronic_store.restapi;
 
 import java.util.ArrayList;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -25,6 +27,18 @@ public class ProductResource {
 		} else {
 			return Response.status(404).build();
 		}
+	}
+
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response addProduct(Product product) {
+		int res = dao.addProduct(product);
+
+		if (res != 0) {
+			Product p = dao.getOneByName(product.getName());
+			return Response.status(201).entity(p).build();
+		}
+		return Response.status(500).entity("Cannot add product").build();
 	}
 
 }

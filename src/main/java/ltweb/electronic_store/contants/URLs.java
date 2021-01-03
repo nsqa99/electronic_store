@@ -6,6 +6,8 @@ public class URLs {
 	public static final String customertPath = "/customer";
 	public static final String resgisterPath = "/resgister";
 	public static final String productPath = "/products";
+	public static final String laptopPath = "/laptops";
+	public static final String mobilePath = "/mobiles";
 	public static final String searchPath = "/search";
 	public static final String loginPath = "/login";
 	public static final String logoutPath = "/logout";
