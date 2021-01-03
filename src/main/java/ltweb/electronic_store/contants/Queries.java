@@ -30,6 +30,7 @@ public class Queries {
 	public static final String GET_HOADON_BY_IDHD = GET_ORDER + " " + CONDITION + "MaHD = ?";
 	public static final String GET_HOADON_BY_IDKH = GET_ORDER + " " + CONDITION + "MaKH = ?";
 	public static final String GET_RATING_BY_ID = GET_RATING + " " + CONDITION + "MaKH = ?" + AND + "MaSP = ?" ;
+	public static final String GET_RATING_BY_IDSP = GET_RATING + " " + CONDITION + "MaSP = ?" ;
 
 	public static final String GET_CART_BY_ID = GET_CART + " " + CONDITION + "MaKH = ?";
 	public static final String GET_CHITIETHOADON_BY_IDHD = GET_CHITIETHOADON + " " + CONDITION + "MaHD = ?";

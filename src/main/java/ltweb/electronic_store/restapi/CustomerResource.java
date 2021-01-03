@@ -16,33 +16,16 @@ import ltweb.electronic_store.model.DetailCart;
 import ltweb.electronic_store.model.Customer;
 
 
-@Path("/customer")
+@Path("/resgister")
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerResource {
 	private CustomerDAO dao = new CustomerDAO();
 
 	
-	@GET
-//	@Path("/listProduct")
-	public Response Customer(@QueryParam("name") String name) {
-		System.out.println("kkkkkkkkkkkkkkkkkkkkk");
-		System.out.println(name + " name");
-		int ma = Integer.parseInt(name);
-//		Customer cus = new Customer();
-		System.out.println(ma);
-//		if (list != null) {
-//			System.out.println("api");
-//			System.out.println(list);
-//			return Response.ok().entity(list).build();
-			
-//		} else {
-//			return Response.status(500).build();
-//		}
-		return null;
-	}
 
 	@POST
 	 public Response resgister(Customer cus) throws  ClassNotFoundException {
+		System.out.println(" den day chua");
 				 int res = dao.addCust(cus);
 				 if (res == 1) return Response.status(201).build();
 				 return Response.status(500).build();

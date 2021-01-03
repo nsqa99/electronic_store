@@ -29,6 +29,7 @@ public class URLs {
 	public static final String getCustomer_User = "/customer";
 	public static final String getProduct = "/ByIDProduct";
 	public static final String checkRating = "/checkRating";
+	public static final String getRating = "/getRating";
 	
 	public static final String productDetailUrl = "/product/details";
 
