@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import ltweb.electronic_store.contants.Queries;
+import ltweb.electronic_store.model.Laptop;
+import ltweb.electronic_store.model.Mobile;
 import ltweb.electronic_store.model.Product;
 import ltweb.electronic_store.utils.DBConnect;
 import ltweb.electronic_store.utils.ProductConverter;
@@ -17,6 +19,80 @@ public class ProductDAO {
 
 	public ProductDAO() {
 		this.conn = db.getConnection();
+	}
+
+	public Product getOneByName(String name) {
+		Product p = new Product();
+		try {
+			PreparedStatement stm = conn.prepareStatement(Queries.GET_ONE_PRODUCT_BY_NAME);
+			stm.setString(1, name);
+			ResultSet rs = stm.executeQuery();
+			rs.next();
+			p = ProductConverter.convert(rs);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return p;
+	}
+
+	public int addProduct(Product p) {
+		int res = 0;
+		try {
+			PreparedStatement stm = conn.prepareStatement(Queries.ADD_PRODUCT);
+			stm.setString(1, p.getName());
+			stm.setDouble(2, p.getDiscountedPrice());
+			stm.setDouble(3, p.getPrice());
+			stm.setInt(4, p.getAmount());
+			stm.setString(5, p.getImage());
+			stm.setString(6, p.getScreen());
+			stm.setString(7, p.getOs());
+			stm.setString(8, p.getCpu());
+			stm.setString(9, p.getRam());
+			stm.setString(10, p.getRom());
+			stm.setString(11, p.getBattery());
+			stm.setString(12, p.getWarranty());
+			res = stm.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	public int addLaptop(Laptop lt) {
+		int res = 0;
+		try {
+			PreparedStatement stm = conn.prepareStatement(Queries.ADD_LAPTOP);
+
+			stm.setInt(1, lt.getIdProduct());
+			stm.setString(2, lt.getCamera());
+			stm.setString(3, lt.getVGA());
+			res = stm.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	public int addMobile(Mobile mb) {
+		int res = 0;
+		try {
+			PreparedStatement stm = conn.prepareStatement(Queries.ADD_MOIBLE);
+
+			stm.setInt(1, mb.getIdProduct());
+			stm.setString(2, mb.getFrontCamera());
+			stm.setString(3, mb.getBackCamera());
+			res = stm.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 	public ArrayList<Product> getAll() {

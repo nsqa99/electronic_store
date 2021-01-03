@@ -17,6 +17,15 @@ public class Mobile extends Product {
 
 	}
 
+	public Mobile(String name, double discountedPrice, double price, int amount, String image, String screen, String os,
+			String cpu, String ram, String rom, String battery, String warranty, String frontCamera,
+			String backCamera) {
+		super(name, discountedPrice, price, amount, image, screen, os, cpu, ram, rom, battery, warranty);
+		this.frontCamera = frontCamera;
+		this.backCamera = backCamera;
+
+	}
+
 	public String getFrontCamera() {
 		return frontCamera;
 	}

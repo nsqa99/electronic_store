@@ -26,8 +26,24 @@ public class Product {
 
 	public Product(int idProduct, String name, double discountedPrice, double price, int amount, String image,
 			String screen, String os, String cpu, String ram, String rom, String battery, String warranty) {
-		super();
 		this.idProduct = idProduct;
+		this.name = name;
+		this.discountedPrice = discountedPrice;
+		this.price = price;
+		this.amount = amount;
+		this.image = image;
+		this.screen = screen;
+		this.os = os;
+		this.cpu = cpu;
+		this.ram = ram;
+		this.rom = rom;
+		this.battery = battery;
+		this.warranty = warranty;
+	}
+
+	public Product(String name, double discountedPrice, double price, int amount, String image, String screen,
+			String os, String cpu, String ram, String rom, String battery, String warranty) {
+
 		this.name = name;
 		this.discountedPrice = discountedPrice;
 		this.price = price;
