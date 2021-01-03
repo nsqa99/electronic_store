@@ -53,6 +53,24 @@ public class CustomerDAO {
 		return c;
 	}
 
+	public ArrayList<Customer> getCustByName(String username) {
+		ArrayList<Customer> c = new ArrayList<Customer>();
+		try {
+			PreparedStatement stm = conn.prepareStatement(Queries.GET_CUSTOMER_BY_NAME);
+			stm.setString(1, username);
+			ResultSet rs = stm.executeQuery();
+			System.out.println(stm);
+			while (rs.next()) {
+				c.add(CustomerConverter.convert(rs)) ;
+			}
+			System.out.println("aass");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return c;
+	}
 	public int addCust(Customer customer) {
 		int res = 0;
 		if (customer != null) {

@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import ltweb.electronic_store.model.Customer;
-import ltweb.electronic_store.model.Order;
 
 public class CustomerConverter {
 	public static Customer convert(ResultSet rs) throws SQLException {
@@ -14,6 +13,8 @@ public class CustomerConverter {
 		String fullName = rs.getString("TenKH");
 		String address = rs.getString("Diachi");
 		String phone = rs.getString("SDT");
-		return new Customer(idCust, username, password, fullName, address, phone);
+		String gioitinh = rs.getString("Gioitinh");
+//		return new Customer(idCust, username, password, fullName, address, phone, gioitinh);
+		return new Customer(username, password, fullName, gioitinh, phone, address);
 	}
 }
