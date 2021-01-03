@@ -31,8 +31,15 @@ public class URLs {
 	public static final String checkRating = "/checkRating";
 	public static final String getRating = "/getRating";
 	
-	public static final String productDetailUrl = "/product/details";
 
 	public static final String DELETE_ADMIN_PATH = "deletead/{adminId}";
 	public static final String INSERT_RATING = "/rating";
+
+	public static final String searchUrl = "http://localhost:8080/electronic-store/search?nameP=";
+	public static final String productDetailUrl = "http://localhost:8080/electronic-store/product/details?id=";
+
+	public static final String DELETE_ADMIN_PATH = "deletead/{adminId}";
+	public static final String INFOR_CUS_PATH = "customer/{customername}";
+
+	public static final String uri = "http://localhost:8080/electronic-store/";
 }

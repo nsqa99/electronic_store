@@ -105,6 +105,12 @@
   	<servlet-class>ltweb.electronic_store.controller.ProductServlet</servlet-class>
   </servlet>
   <servlet>
+  	<servlet-name>InforCusServlet</servlet-name>
+  	<display-name>InforCusServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.InforCusServlet</servlet-class>
+  </servlet>
+  <servlet>
   	<servlet-name>DetailProductServlet</servlet-name>
   	<display-name>DetailProductServlet</display-name>
   	<description></description>
@@ -178,6 +184,10 @@
   <servlet-mapping>
   	<servlet-name>ProductServlet</servlet-name>
   	<url-pattern>/ProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InforCusServlet</servlet-name>
+  	<url-pattern>/InforCusServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>DetailProductServlet</servlet-name>

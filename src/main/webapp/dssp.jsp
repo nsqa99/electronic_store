@@ -93,6 +93,7 @@
 								
 							</select>
 							<input hidden name="nameP" value="<%=request.getParameter("nameP")%>">
+							<input hidden name="type" value="<%=request.getParameter("type")%>">
 						</form>
 					</div>
 	        		<div class="dssp">
@@ -100,7 +101,7 @@
 			        		for(Product product: products) {
 			        	%>
 			        			<div class="_1sanpham">
-			        					<a href="<%=request.getContextPath()%>/product/details?id=<%=product.getIdProduct()%>">
+			        					<a href="<%=URLs.productDetailUrl + product.getIdProduct()%>">
 						                    <img src="<%=product.getImage() %>" alt="image-product">
 						                    <h3><%= product.getName() %></h3>
 						                    <span><%= NumberFormat.getCurrencyInstance().format(product.getDiscountedPrice()).substring(1)%>đ</span>
@@ -122,19 +123,32 @@
 		        	<div class="pagination">
 		        		
 		        	  <%
-		        	  	//System.out.println("page size: " + Settings.PAGE_SIZE + ", total page: " + Math.ceil((double)total/(double)Settings.PAGE_SIZE));
-		        	  	for(int i=1; i<=Math.ceil((double)total/(double)Settings.PAGE_SIZE); i++) {
+		        	  	//System.out.println("page size: " + total + ", total page: " + Math.ceil((double)total/(double)Settings.PAGE_SIZE));
+		        	  	size = size == 0 ? Settings.PAGE_SIZE : size;
+		        	  	System.out.println(type);
+		        	  	type = type == null ? "" : type;
+		        	  	for(int i=1; i<=Math.ceil((double)total/(double)size); i++) {
 		        			if(currentPage == i) {%>
 		        				<a 
 		        				class="active"
 				        	  	id="page<%=i %>"
-				        		href="<%=URLs.searchUrl%><%=nameQuery%>&page=<%=i %>&size=<%=Settings.PAGE_SIZE%>">
+				        	  	<% if (size == 0 || type.equals("")) {%> 
+				        	  		href="<%=URLs.searchUrl%><%=nameQuery%>&page=<%=i %>&size=<%=Settings.PAGE_SIZE%>"
+				        	  	<%} else { %> 
+				        	  		href="<%=request.getContextPath()%>/filter?nameP=<%=nameQuery%>&page=<%=i %>&size=<%=size%>&type=<%=type%>"
+				        	  	<%} %>
+				        		>
 				        		<%=i %>
 				        		</a> 
 		        			<%} else { %>
 				        	  	<a 
 				        	  	id="page<%=i %>"
-				        		href="<%=URLs.searchUrl%><%=nameQuery%>&page=<%=i %>&size=<%=Settings.PAGE_SIZE%>">
+				        	  	<% if (size == 0) {%> 
+				        	  		href="<%=URLs.searchUrl%><%=nameQuery%>&page=<%=i %>&size=<%=Settings.PAGE_SIZE%>"
+				        	  	<%} else { %> 
+				        	  		href="<%=request.getContextPath()%>/filter?nameP=<%=nameQuery%>&page=<%=i %>&size=<%=size%>&type=<%=type %>"
+				        	  	<%} %>
+				        		>
 				        		<%=i %>
 				        		</a> 
 		        		<%} %>

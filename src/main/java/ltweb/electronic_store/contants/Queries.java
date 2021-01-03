@@ -77,4 +77,5 @@ public class Queries {
 			
 
 	public static final String GET_CUSTOMER_BY_USN = GET_CUSTOMER + " " + CONDITION + "Tendangnhap = ? AND Matkhau = ?";
+	public static final String GET_CUSTOMER_BY_NAME = GET_CUSTOMER + " " + CONDITION + "Tendangnhap = ?";
 }

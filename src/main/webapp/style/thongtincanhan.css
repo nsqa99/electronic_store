@@ -83,3 +83,16 @@
         opacity: 1;
     }
     
+    a, a:hover, a:active {
+    	text-decoration: none;
+    	color: blue;
+    }
+    
+    a {
+    	font-size: 25px;
+    	color: black;
+    	
+    }
+    
+    
+    
