@@ -1,3 +1,4 @@
+<%@page import="ltweb.electronic_store.contants.URLs"%>
 <%@page import="ltweb.electronic_store.utils.CookieUtils"%>
 <%@page import="ltweb.electronic_store.contants.Settings"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -142,17 +143,15 @@
        </div>
        <div class="dtduoi">
            <div class="_1anh trai">
-               <a href="chitietsp.jsp">
+               <a href="<%=URLs.productDetailUrl%>16">
                <img src="img/samsung-galaxy-note-20-ultra-spec.jpg" alt="">
                <p>Samsung Galaxy Note 20 Ultra</p>
                </a>
                <div class="gia">
-                   <p>26.490.000đ</p>
-                   <del>29.990.000đ</del>
-                   <p class="giamgia">-11%</p>
+                   <p>29.990.000đ</p>
                </div>
                <small>Giảm thêm 1.000.000đ</small>
-               <div class="danhgia">
+               <!-- <div class="danhgia">
                    <div class="sao">
                        <i class="fa fa-star"></i>
                        <i class="fa fa-star"></i>
@@ -161,20 +160,19 @@
                        <i class="fa fa-star-half"></i>
                    </div>
                    <div class="nhanxet">39 đánh giá</div>
-               </div>
+               </div> -->
            </div>
 
            <div class="_1anh phai">
-            <a href="chitietsp.jsp">
+            <a href="<%=URLs.productDetailUrl%>17">
                <img src="img/oppo-a93.jpg" alt="">
                <p>OOPO A93</p>
             </a>
                <div class="gia">
-                   <p>6.360.000đ</p>
-                   <del>7.490.000đ</del>
-                   <p class="giamgia">-15%</p>
+                   <p>7.490.000đ</p>
+                   
                </div>
-               
+               <!-- 
                <div class="danhgia">
                    <div class="sao">
                        <i class="fa fa-star"></i>
@@ -184,19 +182,19 @@
                        <i class="fa fa-star-half"></i>
                    </div>
                    <div class="nhanxet">156 đánh giá</div>
-               </div>
+               </div> -->
            </div>
 
            <div class="_1anh phai">
-            <a href="chitietsp.jsp">
+            <a href="<%=URLs.productDetailUrl%>18">
                <img src="img/iphone-11.jpg" alt="">
-               <p>Iphone 11 64G (Hộp mới)</p>
+               <p>Iphone 11 64G (Hộp cũ)</p>
             </a>
                <div class="gia">
-                   <p>11.990.000đ</p>
+                   <p>22.990.000đ</p>
                </div>
                <small>Giảm thêm 2.100.000đ</small>
-               
+               <!-- 
                <div class="danhgia">
                    <div class="sao">
                        <i class="fa fa-star"></i>
@@ -206,20 +204,19 @@
                        <i class="fa fa-star-half"></i>
                    </div>
                    <div class="nhanxet">39 đánh giá</div>
-               </div>
+               </div> -->
            </div>
 
            <div class="_1anh phai">
-            <a href="chitietsp.jsp">
+            <a href="<%=URLs.productDetailUrl%>19">
                <img src="img/xiaomi-redmi.jpg" alt="">
                <p>Xiaomi Redmi 9 (4GB/64GB)</p>
             </a>
                <div class="gia">
-                   <p>3.390.000đ</p>
-                   <del>3.990.000đ</del>
-                   <p class="giamgia">-15%</p>
+                   <p>3.490.000đ</p>
+                   
                </div>
-               
+               <!-- 
                <div class="danhgia">
                    <div class="sao">
                        <i class="fa fa-star"></i>
@@ -229,11 +226,11 @@
                        <i class="fa fa-star-half"></i>
                    </div>
                    <div class="nhanxet">181 đánh giá</div>
-               </div>
+               </div> -->
            </div>
 
            <div class="_1anh trai">
-            <a href="chitietsp.jsp">
+            <a href="<%=URLs.productDetailUrl%>20">
                <img src="img/oppo-reno4.jpg" alt="">
                <p>OPPO Reno4</p>
             </a>
@@ -241,7 +238,7 @@
                    <p>8.490.000đ</p>
                </div>
                <small>Giảm thêm 1.280.000đ</small>
-               <div class="danhgia">
+               <!-- <div class="danhgia">
                    <div class="sao">
                        <i class="fa fa-star"></i>
                        <i class="fa fa-star"></i>
@@ -250,20 +247,19 @@
                        <i class="fa fa-star-half"></i>
                    </div>
                    <div class="nhanxet">265 đánh giá</div>
-               </div>
+               </div> -->
            </div>
 
            <div class="_1anh phai">
-            <a href="chitietsp.jsp">
+            <a href="<%=URLs.productDetailUrl%>21">
                <img src="img/samsung-galaxy.jpg" alt="">
                <p>Samsung Galaxy M51</p>
             </a>
                <div class="gia">
-                   <p>8.090.000đ</p>
-                   <del>9.490.000đ</del>
-                   <p class="giamgia">-14%</p>
+                   <p>9.490.000đ</p>
+                   
                </div>
-               
+               <!-- 
                <div class="danhgia">
                    <div class="sao">
                        <i class="fa fa-star"></i>
@@ -273,20 +269,19 @@
                        <i class="fa fa-star-half"></i>
                    </div>
                    <div class="nhanxet">90 đánh giá</div>
-               </div>
+               </div> -->
            </div>
 
            <div class="_1anh phai">
-            <a href="chitietsp.jsp">
+            <a href="<%=URLs.productDetailUrl%>22">
                <img src="img/realme-7i.jpg" alt="">
                <p>Realme 7i</p>
            </a>
                <div class="gia">
-                   <p>5.340.000đ</p>
-                   <del>6.290.000đ</del>
-                   <p class="giamgia">-15%</p>
+                   <p>6.290.000đ</p>
+                   
                </div>
-               
+               <!-- 
                <div class="danhgia">
                    <div class="sao">
                        <i class="fa fa-star"></i>
@@ -296,20 +291,19 @@
                        <i class="fa fa-star-half"></i>
                    </div>
                    <div class="nhanxet">16đánh giá</div>
-               </div>
+               </div> -->
            </div>
 
            <div class="_1anh phai">
-            <a href="chitietsp.jsp">
+            <a href="<%=URLs.productDetailUrl%>23">
                <img src="img/vivo-v20.jpg" alt="">
                <p>Vio V20</p>
             </a>
                <div class="gia">
-                   <p>7.210.000đ</p>
-                   <del>8.490.000đ</del>
-                   <p class="giamgia">-15%</p>
+                   <p>7.990.000đ</p>
+                   
                </div>
-               
+               <!-- 
                <div class="danhgia">
                    <div class="sao">
                        <i class="fa fa-star"></i>
@@ -319,7 +313,7 @@
                        <i class="fa fa-star-half"></i>
                    </div>
                    <div class="nhanxet">65 đánh giá</div>
-               </div>
+               </div> -->
            </div>
        </div>
    </div>
@@ -327,13 +321,13 @@
    <!-- laptop -->
        <div class="laptop">
            <div class="lttren">
-            <a href="chitietsp.jsp">
+            <a href="<%=URLs.productDetailUrl%>24">
                <img src="img/LT1.png" alt="">
            </a>
            </div>
            <div class="ltduoi">
                <div class="_1anh trai">
-                <a href="chitietsp.jsp">
+                <a href="<%=URLs.productDetailUrl%>24">
                    <img src="img/laptop1.jpg" alt="">
                    <p> Acer Aspire 3 A315 56 36YS i3 1005G1 (NX.HS5SV.008)</p>
                 </a>
@@ -342,28 +336,28 @@
                        <div class="ocung">Ổ CỨNG SSD 512GB</div>
                    </div>
                    <div class="gia">
-                       <p>13.690.000đ</p>
-                       <del>13.990.000đ</del>
+                       <p>13.790.000đ</p>
+                       
                    
                    </div>
                    <small>Quà 100.000đ</small>
                </div>
    
                <div class="_1anh phai">
-                <a href="chitietsp.jsp">
+                <a href="<%=URLs.productDetailUrl%>25">
                    <img src="img/laptop2.jpg" alt="">
                    <p>Lenovo IdeaPad S145 15IIL i3 1005G1 (81W8001XVN)</p>
                 </a>
                    <div class="thongso">
                        <div class="ram"> RAM 4GB</div>
-                       <div class="ocung">Ổ CỨNG SSD 256GB</div>
+                       <div class="ocung">Ổ CỨNG SSD 512GB</div>
                    </div>
                    <div class="gia">
-                       <p>9.760.000đ</p>
-                       <del>11.490.000đ</del>
-                       <p class="giamgia">-15%</p>
+                       <p>10.340.000đ</p>
+                       
                    </div>
                    <small>Quà 100.000đ</small>
+                   <!-- 
                    <div class="danhgia">
                        <div class="sao">
                            <i class="fa fa-star"></i>
@@ -373,11 +367,11 @@
                            <i class="fa fa-star-half"></i>
                        </div>
                        <div class="nhanxet">13 đánh giá</div>
-                   </div>
+                   </div> -->
                </div>
    
                <div class="_1anh phai">
-                <a href="chitietsp.jsp">
+                <a href="<%=URLs.productDetailUrl%>26">
                    <img src="img/latop3.jpg" alt="">
                    <p> Lenovo IdeaPad S340 14IIL i3 1005G1(81VV003VVN)</p>
                 </a>
@@ -386,12 +380,11 @@
                        <div class="ocung">Ổ CỨNG SSD 512GB</div>
                    </div>
                    <div class="gia">
-                       <p>11.890.000đ</p>
-                       <del>11.490.000đ</del>
-                       <p class="giamgia">-15%</p>
+                       <p>12.590.000đ</p>
+                       
                    </div>
                    <small>Quà 100.000đ</small>
-                   
+                   <!-- 
                    <div class="danhgia">
                        <div class="sao">
                            <i class="fa fa-star"></i>
@@ -401,11 +394,11 @@
                            <i class="fa fa-star-half"></i>
                        </div>
                        <div class="nhanxet">6 đánh giá</div>
-                   </div>
+                   </div> -->
                </div>
    
                <div class="_1anh phai">
-                <a href="chitietsp.jsp">
+                <a href="<%=URLs.productDetailUrl%>27">
                    <img src="img/latop4.jpg" alt="">
                    <p>Apple MacBook Air 2017 (MQD32SA/A)</p>
                 </a>
@@ -414,11 +407,10 @@
                        <div class="ocung">Ổ CỨNG SSD 128GB</div>
                    </div>
                    <div class="gia">
-                       <p>18.890.000đ</p>
-                       <del>20.990.000đ</del>
-                       <p class="giamgia">-10%</p>
+                       <p>18.990.000đ</p>
+                       
                    </div>
-                   
+                   <!-- 
                    <div class="danhgia">
                        <div class="sao">
                            <i class="fa fa-star"></i>
@@ -428,7 +420,7 @@
                            <i class="fa fa-star-half"></i>
                        </div>
                        <div class="nhanxet">45 đánh giá</div>
-                   </div>
+                   </div> -->
                </div>
            </div>
        </div>
