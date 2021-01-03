@@ -8,8 +8,8 @@ public class DBConnect {
 	private static DBConnect dbConnect;
 	private final String dbName = "webdt";
 	private final String dbUrl = "jdbc:mysql://localhost:3306/" + dbName;
-	private final String dbUsn = "root";
-	private final String dbPw = "220899";
+	private final String dbUsn = "nsqa";
+	private final String dbPw = "123456";
 	private Connection conn;
 
 	private DBConnect() {

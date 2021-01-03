@@ -21,11 +21,15 @@ public class SearchResource {
 	public Response searchAllByName(@QueryParam("name") String name, @QueryParam("page") int page,
 			@QueryParam("size") int size, @QueryParam("type") String type) {
 		ArrayList<Product> products = new ArrayList<Product>();
-		if (type == null) {
-			products = dao.getByNamePagin(name, page, size);
+		if (type != null) {
+			if (type.equals("")) {
+				products = dao.getByNamePagin(name, page, size);
 
+			} else {
+				products = dao.getByType(name, type, page, size);
+			}
 		} else {
-			products = dao.getByType(name, type, page, size);
+			products = dao.getByNamePagin(name, page, size);
 		}
 
 		int total = dao.getTotalProductByName(name, type);

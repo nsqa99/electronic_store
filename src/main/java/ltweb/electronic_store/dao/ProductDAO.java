@@ -243,10 +243,14 @@ public class ProductDAO {
 	public int getTotalProductByName(String name, String type) {
 		int total = 0;
 		String query;
-		if (type == null) {
-			query = Queries.GET_TOTAL_PRODUCT_BY_NAME;
+		if (type != null) {
+			if (type.equals("")) {
+				query = Queries.GET_TOTAL_PRODUCT_BY_NAME;
+			} else {
+				query = type.equals("laptop") ? Queries.GET_TOTAL_LAPTOP_BY_NAME : Queries.GET_TOTAL_MOBILE_BY_NAME;
+			}
 		} else {
-			query = type.equals("laptop") ? Queries.GET_TOTAL_LAPTOP_BY_NAME : Queries.GET_TOTAL_MOBILE_BY_NAME;
+			query = Queries.GET_TOTAL_PRODUCT_BY_NAME;
 		}
 
 		try {
