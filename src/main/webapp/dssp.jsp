@@ -100,7 +100,7 @@
 			        		for(Product product: products) {
 			        	%>
 			        			<div class="_1sanpham">
-			        					<a href="<%=request.getContextPath()%>/product/details?id=<%=product.getIdProduct()%>">
+			        					<a href="<%=URLs.productDetailUrl + product.getIdProduct()%>">
 						                    <img src="<%=product.getImage() %>" alt="image-product">
 						                    <h3><%= product.getName() %></h3>
 						                    <span><%= NumberFormat.getCurrencyInstance().format(product.getDiscountedPrice()).substring(1)%>đ</span>

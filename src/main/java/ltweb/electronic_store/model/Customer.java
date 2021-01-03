@@ -1,31 +1,33 @@
 package ltweb.electronic_store.model;
 
-
 public class Customer extends User {
 	private int idCust;
 	private String phone;
 
 	public Customer() {
-	
+
 	}
 
-	public Customer(int idCust, String username, String password, String fullName, String address, String phone) {
-		super(username, password, fullName, address, phone);
+	public Customer(int idCust, String username, String password, String fullName, String address, String gender,
+			String phone) {
+		super(username, password, fullName, address, gender);
 		this.idCust = idCust;
 		this.phone = phone;
 	}
 
 	public Customer(int idCust, String username, String password, String fullName, String address, String phone,
-			String dob) {
-		super(username, password, fullName, address, phone, dob);
+			String gender, String dob) {
+		super(username, password, fullName, address, gender, dob);
 		this.idCust = idCust;
 		this.phone = phone;
 	}
-	public Customer(String username, String password, String fullName,String gender, String phone, String address ) {
-		super(username, password, fullName, address,gender);
+
+	public Customer(String username, String password, String fullName, String gender, String phone, String address) {
+		super(username, password, fullName, address, gender);
 //		this.idCust = idCust;
 		this.phone = phone;
 	}
+
 	public int getIdCust() {
 		return idCust;
 	}
@@ -41,6 +43,5 @@ public class Customer extends User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
 
 }
