@@ -20,6 +20,8 @@ public class Queries {
 	// get by id
 	public static final String GET_CUSTOMER_BY_ID = GET_CUSTOMER + " " + CONDITION + "MaKhach = ?";
 	public static final String GET_PRODUCT_BY_ID = GET_PRODUCT + " " + CONDITION + "MaSP = ?";
+	public static final String GET_LAPTOP_BY_ID = GET_LAPTOP + " " + CONDITION + "sp.MaSP = ?";
+	public static final String GET_MOBILE_BY_ID = GET_MOBILE + " " + CONDITION + "sp.MaSP = ?";
 	public static final String GET_ORDER_BY_ID = GET_ORDER + " " + CONDITION + "MaHD = ?";
 	public static final String GET_HOADON_BY_IDHD = GET_ORDER + " " + CONDITION + "MaHD = ?";
 	public static final String GET_HOADON_BY_IDKH = GET_ORDER + " " + CONDITION + "MaKH = ?";
