@@ -8,19 +8,21 @@ public class DBConnect {
 	private static DBConnect dbConnect;
 	private final String dbName = "webdt";
 	private final String dbUrl = "jdbc:mysql://localhost:3306/" + dbName;
-	private final String dbUsn = "nsqa";
-	private final String dbPw = "123456";
+	private final String dbUsn = "root";
+	private final String dbPw = "12345";
 	private Connection conn;
 
 	private DBConnect() {
 		// TODO Auto-generated constructor stub
 		try {
+			System.out.println("MMMMMMMMMMMM");
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbUrl, dbUsn, dbPw);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
+			System.out.println("loi db");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

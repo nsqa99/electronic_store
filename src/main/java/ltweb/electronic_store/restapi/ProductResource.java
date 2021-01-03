@@ -15,6 +15,7 @@ import ltweb.electronic_store.dao.ProductDAO;
 import ltweb.electronic_store.model.Laptop;
 import ltweb.electronic_store.model.Mobile;
 import ltweb.electronic_store.model.Product;
+import ltweb.electronic_store.model.Rating;
 
 @Path("products")
 @Produces(MediaType.APPLICATION_JSON)
@@ -62,4 +63,19 @@ public class ProductResource {
 		return Response.status(500).entity("Cannot add product").build();
 	}
 
+	
+	@GET
+	@Path("/getRating")
+	public Response getRating(@PathParam("idSP") String id) {
+		int ma = Integer.parseInt(id);
+		ArrayList<Rating> list = dao.getAllRating(ma);
+		if (list != null) {
+			System.out.println("api");
+			System.out.println(list);
+			return Response.ok().entity(list).build();
+			
+		} else {
+			return Response.status(500).build();
+		}
+	}
 }

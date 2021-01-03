@@ -14,8 +14,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import ltweb.electronic_store.contants.URLs;
-import ltweb.electronic_store.model.ChitietHoadon;
 import ltweb.electronic_store.model.Customer;
+import ltweb.electronic_store.model.DetailOrdes;
 import ltweb.electronic_store.model.Order;
 import ltweb.electronic_store.model.Product;
 
@@ -38,12 +38,12 @@ public class DetailOrderServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("idHD");
-		ArrayList<ChitietHoadon> ct = new ArrayList<>();
+		ArrayList<DetailOrdes> ct = new ArrayList<>();
 		Client client = ClientBuilder.newClient();
 		Response res = client.target(URLs.baseUrl + URLs.searchDetailHoaDonPath +"?name=" + name.trim())
 				.request(MediaType.APPLICATION_JSON).get();
 		if (res.getStatus() != 400 && res.getStatus() != 500) {
-			ct = res.readEntity(new GenericType<ArrayList<ChitietHoadon>>() {
+			ct = res.readEntity(new GenericType<ArrayList<DetailOrdes>>() {
 			});
 		}
 		else {

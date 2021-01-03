@@ -4,6 +4,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="ltweb.electronic_store.model.Mobile"%>
 <%@page import="ltweb.electronic_store.model.Laptop"%>
+<%@page import="ltweb.electronic_store.model.Rating"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -213,27 +214,36 @@
     <div class="tong">
         <div class="tongdanhgia">
             <h1>Đánh giá sản phẩm</h1>
+             <% ArrayList<Rating> ct = (ArrayList<Rating>) request.getSession().getAttribute("rating");
+             if(ct != null){
+            	 %>
+             
             <div class="chitietdanhgia">
+            	<% 
+			        		for(Rating ra: ct) {
+			        	%>
                 <div class="imganhdaidien">
                 <div class="avata">
-                    <a href="#"><img src="img/Capture.PNG"></a>
+                   <img src="<%= ra.getIdCust() %>">
                 </div>
                 </div>
                 <div class="noidungdanhgia">
-                <div class="tenspdanhgia">
-                    <h5>Iphone12XsMax</h5>
-                </div>
+                
                 <div class="imgrating">
-                    <img src="img/sao.PNG" alt="#">
+                    <%= ra.getStar() %> <p> Sao </p>
                 </div>               
                 <div class="frm">
                     <form  class="boxdanhgia"action="" method="post">
-                        <textarea placeholder="Nội dung đánh giá" rows="5"></textarea>
-                        <button>Đánh giá</button>            
+                        <textarea placeholder="Nội dung đánh giá" rows="5"><%= ra.getContent() %></textarea>
+                                
                     </form>
-                </div>              
+                </div>    
+                <%} %>
+                          
             </div>
+            
         </div>
+        <%} %>
     </div>
         </div>
     <!-- Hết Đánh giá -->

@@ -22,6 +22,14 @@ public class User {
 		this.gender = gender;
 	}
 
+	public User(String username, String fullName, String address, String gender) {
+		super();
+		this.username = username;
+		this.fullName = fullName;
+		this.address = address;
+		this.gender = gender;
+	}
+	
 	public User(String username, String password, String fullName, String address, String gender, String dob) {
 		this.username = username;
 		this.password = password;

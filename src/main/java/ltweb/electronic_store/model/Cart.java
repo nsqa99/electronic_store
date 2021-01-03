@@ -25,17 +25,43 @@ public class Cart {
 		this.phone = phone;
 	}
 
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+	public void setTotalAmount(int totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+
+	
+	public Cart(int idCart, int idCust, String address, String phone) {
+		super();
+		this.idCart = idCart;
+		this.idCust = idCust;
+		this.address = address;
+		this.phone = phone;
+	}
+	
+
+//	public double getTotal() {
+//		for (Product product : products) {
+//			total += product.getDiscountedPrice();
+//		}
+//		return total;
+//	}
+//
+//	public int getTotalAmount() {
+//		for (Product product : products) {
+//			totalAmount += product.getAmount();
+//		}
+//		return totalAmount;
+//	}
+
 	public double getTotal() {
-		for (Product product : products) {
-			total += product.getDiscountedPrice();
-		}
 		return total;
 	}
 
 	public int getTotalAmount() {
-		for (Product product : products) {
-			totalAmount += product.getAmount();
-		}
 		return totalAmount;
 	}
 

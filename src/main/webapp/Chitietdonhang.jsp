@@ -1,7 +1,7 @@
 <%@page import="ltweb.electronic_store.model.Customer"%>
 <%@page import="ltweb.electronic_store.model.Order"%>
 <%@page import="ltweb.electronic_store.model.Product"%>
-<%@page import="ltweb.electronic_store.model.ChitietHoadon"%>
+<%@page import="ltweb.electronic_store.model.DetailOrdes"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
         <h1 id = "titleChitietdonhang"> Chi tiết đơn hàng</h1>
         <div id = "bodyChitietdonhang">
             <div class = "menuChitietdonhang">
-            <% ArrayList<ChitietHoadon> ct = (ArrayList<ChitietHoadon>) request.getSession().getAttribute("chitiet");
+            <% ArrayList<DetailOrdes> ct = (ArrayList<DetailOrdes>) request.getSession().getAttribute("chitiet");
         	if (ct != null) {
         		
 	        	if (ct.size() == 0) { %>
@@ -32,7 +32,7 @@
             <div class= "sanphamChitietdonhang">
                 <div class = "menuChitietdonhang">
                     <% 
-			        		for(ChitietHoadon chitiet: ct) {
+			        		for(DetailOrdes chitiet: ct) {
 			        	%>
 			        	<div class = "maSanpham1"><span><%= chitiet.getIdSP()%></span></div>
                     <div class = "tenSanpham1"><span><%= chitiet.getTenSP()%></span></div>

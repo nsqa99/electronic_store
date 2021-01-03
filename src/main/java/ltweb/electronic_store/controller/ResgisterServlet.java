@@ -38,6 +38,7 @@ public class ResgisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		System.out.println(username + " " + password);
 		String password1 = null;
 		try {
 			password1 = SecurityUtils.md5Hashing(password);
@@ -54,10 +55,11 @@ public class ResgisterServlet extends HttpServlet {
 		Client client = ClientBuilder.newClient();
 		Response res = client.target(URLs.baseUrl + URLs.resgisterPath).request(MediaType.APPLICATION_JSON)
 				.post(Entity.json(cus));
-		if (res.getStatus() != 400) {
+		if (res.getStatus() != 404) {
 
 			HttpSession session = request.getSession(true);
 			session.setAttribute("successMessage", "Register success");
+			System.out.println(res.getStatus());
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		} else {
 			request.setAttribute("errorMessage", "Error");

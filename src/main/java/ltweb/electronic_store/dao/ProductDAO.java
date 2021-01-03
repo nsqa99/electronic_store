@@ -10,8 +10,10 @@ import ltweb.electronic_store.contants.Queries;
 import ltweb.electronic_store.model.Laptop;
 import ltweb.electronic_store.model.Mobile;
 import ltweb.electronic_store.model.Product;
+import ltweb.electronic_store.model.Rating;
 import ltweb.electronic_store.utils.DBConnect;
 import ltweb.electronic_store.utils.ProductConverter;
+import ltweb.electronic_store.utils.RatingConverter;
 
 public class ProductDAO {
 	private Connection conn;
@@ -265,4 +267,20 @@ public class ProductDAO {
 		return total;
 	}
 
+	public ArrayList<Rating> getAllRating(int maSP) {
+		ArrayList<Rating> list = new ArrayList<>();
+		try {
+			PreparedStatement stm = conn.prepareStatement(Queries.GET_RATING_BY_IDSP);
+			stm.setInt(1, maSP);
+			ResultSet rs = stm.executeQuery();
+			while (rs.next()) {
+				list.add(RatingConverter.convert(rs));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return list;
+	}
 }
