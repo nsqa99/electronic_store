@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 			if (token != null) {
 				tokenAuth = token.substring(Settings.AUTHENTICATION_PREFIX.length());
 				request.getSession().setAttribute("auth-token", tokenAuth);
-
+				request.getSession().setAttribute("username", username);
 			}
 			Cookie tokenCookie = CookieUtils.setCookie(tokenAuth);
 			response.addCookie(tokenCookie);

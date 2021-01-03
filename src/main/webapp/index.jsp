@@ -52,8 +52,9 @@
 	                       </li>
                        <% } else { %>
                        		<li >
-                       			<form action="<%=request.getContextPath()%>" method="GET">
-		                       		
+                       			<form action="<%=request.getContextPath()%>/InforCusServlet" method="GET">
+                       			<% String username = (String) ss.getAttribute("username"); %>
+		                       		<input type="hidden" name = "cusname" value = <%=username%>>
 		                           <button class="btn__logout"><i class="fa fa-user-o "></i>Tài khoản</button>
 		                       	</form>
 	                           
