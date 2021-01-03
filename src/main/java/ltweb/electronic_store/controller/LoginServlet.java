@@ -15,6 +15,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Response;
 
+import ltweb.electronic_store.contants.Settings;
 import ltweb.electronic_store.contants.URLs;
 import ltweb.electronic_store.utils.CookieUtils;
 import ltweb.electronic_store.utils.SecurityUtils;
@@ -58,10 +59,10 @@ public class LoginServlet extends HttpServlet {
 		Client client = ClientBuilder.newClient();
 		Response res = client.target(URLs.baseUrl + URLs.loginPath).request().post(Entity.json(data));
 		if (res.getStatus() != 401) {
-			String token = res.getHeaderString("Authorization");
+			String token = res.getHeaderString(Settings.AUTHENTICATION_HEADER_KEY);
 			String tokenAuth = null;
 			if (token != null) {
-				tokenAuth = token.substring("Bearer ".length());
+				tokenAuth = token.substring(Settings.AUTHENTICATION_PREFIX.length());
 				request.getSession().setAttribute("auth-token", tokenAuth);
 
 			}
