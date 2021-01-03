@@ -13,16 +13,7 @@
 </head>
 <body>
      <div class="thongtin">
-         <div class="tieude">
-             <h1>Thông tin tài khoản</h1>
-         </div>
-         <div class="trai">
-             <img src="img/daidien.jpg" alt="">
-             <!-- <div class="thaydoi">Thay đổi</div> -->
-         </div>
-          <div class="phai">
-            <form action="#" name="myForm" method="post">
-            	<% ArrayList<Customer> customer = (ArrayList<Customer>) request.getSession().getAttribute("in4cus");
+     <% ArrayList<Customer> customer = (ArrayList<Customer>) request.getSession().getAttribute("in4cus");
                         		if (customer != null) {%>
                         	<%if (customer.size() == 0) { %>
             	        		
@@ -30,6 +21,21 @@
             	        		<% 
 			        				for(Customer cus : customer) {
 			        			%>	
+         <div class="tieude">
+         <form style = "font-size: 2.0vw; float:right; " action = "<%=request.getContextPath()%>/WebOrderServlet" method = "get">
+             <input type = "hidden" value = "<%= cus.getIdCust() %>" name = "idCustomer">
+                           <input class = "luu" type = "submit" value = "Đơn hàng"/>
+             </form>
+             <h1>Thông tin tài khoản</h1>
+             
+         </div>
+         <div class="trai">
+             <img src="img/daidien.jpg" alt="">
+             <!-- <div class="thaydoi">Thay đổi</div> -->
+         </div>
+          <div class="phai">
+            <form action="#" name="myForm" method="post">
+            	
                 <div class="form-group">
                     <label class="nhan">Tên: </label>
                     <input type="text" class="form-control" readonly value="<%=cus.getFullName()%>" placeholder=" " name="Name" required="">
@@ -51,7 +57,7 @@
                 <% } %>
                 <% } %>
                 <% } %>
-                 <a href="<%=URLs.uri%>">Về trang chủ</button>
+                 <button><a href="<%=URLs.uri%>">Về trang chủ</button>
                  <button class="luu">Cập nhật</button>
                
             </form>
