@@ -30,8 +30,8 @@ public class URLs {
 	public static final String getProduct = "/ByIDProduct";
 	public static final String checkRating = "/checkRating";
 	
-//	public static final String getCart = "/cart";
-	
+	public static final String productDetailUrl = "/product/details";
+
 	public static final String DELETE_ADMIN_PATH = "deletead/{adminId}";
 	public static final String INSERT_RATING = "/rating";
 }

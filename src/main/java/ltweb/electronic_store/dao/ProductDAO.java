@@ -21,6 +21,33 @@ public class ProductDAO {
 		this.conn = db.getConnection();
 	}
 
+	public ArrayList getProductByID(int id) {
+		ArrayList<Laptop> laptops = new ArrayList<Laptop>();
+		ArrayList<Mobile> mobiles = new ArrayList<Mobile>();
+		try {
+			PreparedStatement stm = conn.prepareStatement(Queries.GET_LAPTOP_BY_ID);
+			stm.setInt(1, id);
+			ResultSet rs = stm.executeQuery();
+			if (rs.next()) {
+				laptops.add(ProductConverter.convertLaptop(rs));
+			} else {
+				// System.out.println("not laptop");
+				PreparedStatement stm1 = conn.prepareStatement(Queries.GET_MOBILE_BY_ID);
+				stm1.setInt(1, id);
+				ResultSet rs1 = stm1.executeQuery();
+				if (rs1.next()) {
+					// System.out.println("is mobile");
+					mobiles.add(ProductConverter.convertMobile(rs1));
+				}
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return laptops.size() > 0 ? laptops : mobiles.size() > 0 ? mobiles : laptops;
+	}
+
 	public Product getOneByName(String name) {
 		Product p = new Product();
 		try {
