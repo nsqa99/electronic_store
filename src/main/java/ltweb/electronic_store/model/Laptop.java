@@ -39,4 +39,10 @@ public class Laptop extends Product {
 		VGA = vGA;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString() + " Laptop: {camera: " + camera + "; vga: " + VGA + "}";
+	}
+
 }

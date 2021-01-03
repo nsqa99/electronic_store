@@ -42,4 +42,10 @@ public class Mobile extends Product {
 		this.backCamera = backCamera;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString() + " Mobile: {cam truoc: " + frontCamera + "; cam sau: " + backCamera + "}";
+	}
+
 }
