@@ -65,19 +65,9 @@ public class LoginServlet extends HttpServlet {
 				request.getSession().setAttribute("auth-token", tokenAuth);
 
 			}
+			Cookie tokenCookie = CookieUtils.setCookie(tokenAuth);
+			response.addCookie(tokenCookie);
 
-			Cookie[] cookies = request.getCookies();
-			Cookie tokenCookie = null;
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("auth_token")) {
-					tokenCookie = cookie;
-				}
-
-			}
-			if (tokenCookie == null) {
-				tokenCookie = CookieUtils.setCookie(tokenAuth);
-				response.addCookie(tokenCookie);
-			}
 			response.sendRedirect("index.jsp");
 		} else {
 			doGet(request, response);
