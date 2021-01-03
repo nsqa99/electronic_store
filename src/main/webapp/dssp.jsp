@@ -1,3 +1,4 @@
+<%@page import="java.text.NumberFormat"%>
 <%@page import="ltweb.electronic_store.contants.Settings"%>
 <%@page import="ltweb.electronic_store.contants.URLs"%>
 <%@page import="ltweb.electronic_store.model.Product"%>
@@ -99,12 +100,13 @@
 			        		for(Product product: products) {
 			        	%>
 			        			<div class="_1sanpham">
-					                <a href="chitietsp.html">
-					                    <img src="img/ip3.jpg" alt="">
-					                    <h3><%= product.getName() %></h3>
-					                    <span><%= product.getDiscountedPrice()%>đ</span>
-					                    <span>Số lượng: <b><%= product.getAmount() %></b></span>
-					                </a>
+			        					<a href="<%=URLs.productDetailUrl + product.getIdProduct()%>">
+						                    <img src="<%=product.getImage() %>" alt="image-product">
+						                    <h3><%= product.getName() %></h3>
+						                    <span><%= NumberFormat.getCurrencyInstance().format(product.getDiscountedPrice()).substring(1)%>đ</span>
+						                    <span>Số lượng: <b><%= product.getAmount() %></b></span>
+						                </a>
+					                
 				             	</div>
 					          
 			        	<% } %>

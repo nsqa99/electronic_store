@@ -1,4 +1,9 @@
 
+<%@page import="java.util.Locale"%>
+<%@page import="java.text.NumberFormat"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="ltweb.electronic_store.model.Mobile"%>
+<%@page import="ltweb.electronic_store.model.Laptop"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,76 +29,185 @@
     </div>
     <!-- Het thanh vang -->
     <!-- Chi tiet sp -->
+    <% 
+    	HttpSession ss = request.getSession();
+    	String type = (String) ss.getAttribute("pType");
+    	Laptop laptop = null;
+    	Mobile mobile = null;
+    	if (type != null) {
+    		if (type.equals("laptop")) { 
+    			laptop = (Laptop) ss.getAttribute("oneProduct");    		
+    		} else {
+    			mobile = (Mobile) ss.getAttribute("oneProduct");
+    		}
+    	}
+    	
+    %>
     <div class="chitietsp">
-        <div class="tensp">
-            <h1>Apple iPhone 12 128GB (Blue)</h1>
-        </div>
-        <div class="thongtinsp">
-            <div class="anhsp">
-                
-                <div class="anhto">
-                    <img id="imgBox" src="img/ip3.jpg" alt="">
-                </div>
-                <div class="anhnho">
-                    <ul>
-                        <li>
-                            <img id = "image1"src="img/ip3.jpg" alt="" onclick="MyFunction(this)">
-                        </li>
-                        <li>
-                            <img src="img/ip1.jpg" alt="" onclick="MyFunction(this)">
-                        </li>
-                        <li>
-                            <img src="img/ip2.png" alt="" onclick="MyFunction(this)">
-                        </li>
-                    </ul>
-                    
-                    
-                    
-                </div>
-            </div>
-            <div class="bangthongso">
-                <Strong class="giamoi">33.990.000₫</Strong>
-                <span class="giacu">35.990.000₫</span>
-                <h2>Thông số kỹ thuật</h2>
-                <ul class="thongso">
-                    <li>
-                        <span>Màn hình:</span>
-                        <div>OLED, 6.1", Super Retina XDR</div>
-                    </li>
-                    
-                    <li>
-                        <span>Hệ điều hành:</span>
-                        <div>iOS 14</div>
-                    </li>
-                    <li>
-                        <span>Camera sau:</span>
-                        <div>3 camera 12 MP</div>
-                    </li>
-                    <li>
-                        <span>Camera trước:</span>
-                        <div>12 MP</div>
-                    </li>
-                    <li>
-                        <span>CPU:</span>
-                        <div>Apple A14 Bionic 6 nhân</div>
-                    </li>
-                    <li>
-                        <span>RAM:</span>
-                        <div>6 GB</div>
-                    </li>
-                    <li>
-                        <span>Bộ nhớ trong:</span>
-                        <div>128 GB</div>
-                    </li>
-                    <li>
-                        <span>Dung lượng pin:</span>
-                        <div>2815 mAh, có sạc nhanh</div>
-                    </li>
-                </ul>
-                <input type="button" id="themvaogiohang" name="addcart" value="Thêm vào giỏ hàng" onclick="them()">
-            </div>
-        </div>
-    </div>
+    	<% if (laptop != null) { %> 
+		    	<div class="tensp">
+		            <h1><%=laptop.getName() %></h1>
+		        </div>
+		        <div class="thongtinsp">
+		            <div class="anhsp">
+		                
+		                <div class="anhto">
+		                    <img id="imgBox" src="<%=laptop.getImage()%>" alt="anh-san-pham">
+		                </div>
+		                <!--  
+		                <div class="anhnho">
+		                    <ul>
+		                        <li>
+		                            <img id = "image1"src="img/ip3.jpg" alt="" onclick="MyFunction(this)">
+		                        </li>
+		                        <li>
+		                            <img src="img/ip1.jpg" alt="" onclick="MyFunction(this)">
+		                        </li>
+		                        <li>
+		                            <img src="img/ip2.png" alt="" onclick="MyFunction(this)">
+		                        </li>
+		                    </ul>
+		                    
+		                    
+		                    
+		                </div> -->
+		            </div>
+		           
+		            <div class="bangthongso">
+		            	<% if (laptop.getDiscountedPrice() != laptop.getPrice()) { %> 
+		            		<Strong class="giamoi"><%=NumberFormat.getCurrencyInstance().format(laptop.getDiscountedPrice()).substring(1)%>₫</Strong>
+		                	<span class="giacu"><%=NumberFormat.getCurrencyInstance().format(laptop.getPrice()).substring(1)%>₫</span>
+		            	<%} else { %> 
+		            		<Strong class="giamoi"><%=NumberFormat.getCurrencyInstance().format(laptop.getPrice()).substring(1)%>₫</Strong>
+		            	<%} %>
+		                
+		                <h2>Thông số kỹ thuật</h2>
+		                <ul class="thongso">
+		                    <li>
+		                        <span>Màn hình:</span>
+		                        <div><%=laptop.getScreen() %></div>
+		                    </li>
+		                    
+		                    <li>
+		                        <span>Hệ điều hành:</span>
+		                        <div><%=laptop.getOs() %></div>
+		                    </li>
+		                    <li>
+		                        <span>Camera:</span>
+		                        <div><%=laptop.getCamera() %></div>
+		                    </li>
+		                    <li>
+		                        <span>Card đồ họa:</span>
+		                        <div><%=laptop.getVGA() %></div>
+		                    </li>
+		                    <li>
+		                        <span>CPU:</span>
+		                        <div><%=laptop.getCpu() %></div>
+		                    </li>
+		                    <li>
+		                        <span>RAM:</span>
+		                        <div><%=laptop.getRam()%></div>
+		                    </li>
+		                    <li>
+		                        <span>Bộ nhớ:</span>
+		                        <div><%=laptop.getRom() %></div>
+		                    </li>
+		                    <li>
+		                        <span>Dung lượng pin:</span>
+		                        <div><%=laptop.getBattery()%></div>
+		                    </li>
+		                    <li>
+		                        <span>Bảo hành:</span>
+		                        <div><%=laptop.getWarranty()%></div>
+		                    </li>
+		                </ul>
+		                <input type="button" id="themvaogiohang" name="addcart" value="Thêm vào giỏ hàng" onclick="them()">
+		            </div>
+		        </div>
+		    </div>
+    	<%} else if (mobile != null) { %>
+    		<div class="tensp">
+		            <h1><%=mobile.getName() %></h1>
+		        </div>
+		        <div class="thongtinsp">
+		            <div class="anhsp">
+		                
+		                <div class="anhto">
+		                    <img id="imgBox" src="<%=mobile.getImage()%>" alt="anh-san-pham">
+		                </div>
+		                <!--  
+		                <div class="anhnho">
+		                    <ul>
+		                        <li>
+		                            <img id = "image1"src="img/ip3.jpg" alt="" onclick="MyFunction(this)">
+		                        </li>
+		                        <li>
+		                            <img src="img/ip1.jpg" alt="" onclick="MyFunction(this)">
+		                        </li>
+		                        <li>
+		                            <img src="img/ip2.png" alt="" onclick="MyFunction(this)">
+		                        </li>
+		                    </ul>
+		                    
+		                    
+		                    
+		                </div> -->
+		            </div>
+		           
+		            <div class="bangthongso">
+		            	<% if (mobile.getDiscountedPrice() != mobile.getPrice()) { %> 
+		            		<Strong class="giamoi"><%=NumberFormat.getCurrencyInstance().format(mobile.getDiscountedPrice()).substring(1) %>₫</Strong>
+		                	<span class="giacu"><%=NumberFormat.getCurrencyInstance().format(mobile.getPrice()).substring(1)%>₫</span>
+		            	<%} else { %> 
+		            		<Strong class="giamoi"><%=NumberFormat.getCurrencyInstance().format(mobile.getPrice()).substring(1)%>₫</Strong>
+		            	<%} %>
+		                
+		                <h2>Thông số kỹ thuật</h2>
+		                <ul class="thongso">
+		                    <li>
+		                        <span>Màn hình:</span>
+		                        <div><%=mobile.getScreen() %></div>
+		                    </li>
+		                    
+		                    <li>
+		                        <span>Hệ điều hành:</span>
+		                        <div><%=mobile.getOs() %></div>
+		                    </li>
+		                    <li>
+		                        <span>Camera trước:</span>
+		                        <div><%=mobile.getFrontCamera()%></div>
+		                    </li>
+		                    <li>
+		                        <span>Camera sau:</span>
+		                        <div><%=mobile.getBackCamera()%></div>
+		                    </li>
+		                    <li>
+		                        <span>CPU:</span>
+		                        <div><%=mobile.getCpu() %></div>
+		                    </li>
+		                    <li>
+		                        <span>RAM:</span>
+		                        <div><%=mobile.getRam()%></div>
+		                    </li>
+		                    <li>
+		                        <span>Bộ nhớ trong:</span>
+		                        <div><%=mobile.getRom() %></div>
+		                    </li>
+		                    <li>
+		                        <span>Dung lượng pin:</span>
+		                        <div><%=mobile.getBattery()%></div>
+		                    </li>
+		                    <li>
+		                        <span>Bảo hành:</span>
+		                        <div><%=mobile.getWarranty()%></div>
+		                    </li>
+		                </ul>
+		                <input type="button" id="themvaogiohang" name="addcart" value="Thêm vào giỏ hàng" onclick="them()">
+		            </div>
+		        </div>
+		    </div>
+    	 <% } %>
+        
     <!-- Het chi tiet sp -->
     <!-- Đánh giá -->
     <div class="tong">

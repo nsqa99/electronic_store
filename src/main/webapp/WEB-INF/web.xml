@@ -74,6 +74,12 @@
   	<description></description>
   	<servlet-class>ltweb.electronic_store.controller.InforCusServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DetailProductServlet</servlet-name>
+  	<display-name>DetailProductServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.DetailProductServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ResgisterServlet</servlet-name>
   	<url-pattern>/ResgisterServlet</url-pattern>
@@ -123,5 +129,9 @@
   <servlet-mapping>
   	<servlet-name>InforCusServlet</servlet-name>
   	<url-pattern>/InforCusServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DetailProductServlet</servlet-name>
+  	<url-pattern>/product/details</url-pattern>
   </servlet-mapping>
 </web-app>
