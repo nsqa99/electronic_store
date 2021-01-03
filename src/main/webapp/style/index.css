@@ -11,6 +11,19 @@
    list-style: none;
  
  }
+ 
+ 
+ .btn__logout {
+	color: rgb(238, 158, 9);
+    background: black;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    bottom: 5px;
+    font-size: 1rem;
+ }
+ 
  img.logo{
    padding-left: 145px;
  }
@@ -487,5 +500,9 @@ form .form-inline{
    z-index: 2;
    background: black;
  }
+ 
+ 
+ 
+ 
  
  

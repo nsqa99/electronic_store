@@ -37,4 +37,13 @@ public class CustomerResource {
 //		}
 		return null;
 	}
+
+	@POST
+	 public Response resgister(Customer cus) throws  ClassNotFoundException {
+				 int res = dao.addCust(cus);
+				 if (res == 1) return Response.status(201).build();
+				 return Response.status(500).build();
+			 }
+ 		
+    }
 }

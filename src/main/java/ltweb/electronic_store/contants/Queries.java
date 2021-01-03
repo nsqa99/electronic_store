@@ -6,6 +6,7 @@ public class Queries {
 	public static final String UPDATE = "UPDATE TABLE ";
 	public static final String CONDITION = "WHERE ";
 	public static final String AND = " AND ";
+	public static final String ADD = "INSERT INTO ";
 	// get all
 	public static final String GET_CUSTOMER = GET + "Khach";
 	public static final String GET_PRODUCT = GET + "Sanpham";
@@ -32,16 +33,21 @@ public class Queries {
 	public static final String GET_CHITIETHOADON_BY_IDHD = GET_CHITIETHOADON + " " + CONDITION + "MaHD = ?";
 	public static final String GET_DETAILCART_BY_IDGH = GET_DETAILCART + " " + CONDITION + "MaGH = ?";
 	
-
-	// search product by name
-	public static final String GET_PRODUCT_BY_NAME = GET_PRODUCT + " " + CONDITION + "TenSP LIKE ?";
-	
 	//insert
 		public static final String INSERT_HOADON = "insert Hoadon (MaKH, Ngaylap) values"+"(?, ?)";
 		public static final String INSERT_DETAIL_ORDER = "insert ChitietHD (MaHD, MaSP, TenSP, Soluong,Gia) values"+"(?,?,?,?,?)";
 		public static final String INSERT_RATING = "insert Danhgia values"+"(?, ?, ?,?)";
 	
 
+	public static final String GET_ONE_PRODUCT_BY_NAME = GET_PRODUCT + " " + CONDITION + "TenSP = ?";
+	// search product by name
+	public static final String GET_PRODUCT_BY_NAME = GET_PRODUCT + " " + CONDITION + "TenSP LIKE ?";
+	public static final String ADD_CUSTOMER = ADD + "Khach VALUES (null,?, ?, ?, ?, ?, ?,null)";
+
+	public static final String ADD_PRODUCT = ADD
+			+ "Sanpham (MaSP,TenSP,Giadagiam,Giaban,Soluong,Hinhanh,Manhinh,HDH,CPU,RAM,ROM,Pin,BaoHanh) VALUES(null, ?, ? , ? , ? , ?, ?, ?, ?, ?, ?, ?, ? )";
+	public static final String ADD_LAPTOP = ADD + "Laptop VALUES(?, ?, ?)";
+	public static final String ADD_MOIBLE = ADD + "Dienthoai VALUES(?, ?, ?)";
 	// pagin product
 	public static final String GET_PRODUCT_WITH_PAGIN = GET_PRODUCT + " LIMIT ?, ?";
 	public static final String GET_PRODUCT_BY_NAME_WITH_PAGIN = GET_PRODUCT + " " + CONDITION + "TenSP LIKE ? "
@@ -66,4 +72,6 @@ public class Queries {
 	//update
 	public static final String UPDATE_RATING =   "update Danhgia set Star = ?,Danhgia= ? where MaKH = ? and MaSP = ? ;" ;
 			
+
+	public static final String GET_CUSTOMER_BY_USN = GET_CUSTOMER + " " + CONDITION + "Tendangnhap = ? AND Matkhau = ?";
 }

@@ -8,25 +8,18 @@
 
 	<script>
         function dangnhap() {
-            var a = document.getElementById('tendn');
-            var b = document.getElementById('mkdn');
-            if (a.value == "admin" && b.value == "1234") {
-                alert("Dang nhap thanh cong");
-                history.back();
-            }else{
-                alert("Dang nhap khong thanh cong!")
-            }
         }
 	</script>
 	
 </head>
 <body>
+
 <div class="container">
 	<!-- action="index.html" -->
-	<form class="box" method="post" > 
+	<form class="box" method="post" action="<%=request.getContextPath()%>/login"> 
 		<h1>Đăng nhập</h1>
-		<input type="text" name="" placeholder="Username" id="tendn">
-		<input type="password" name="" placeholder="Password"id="mkdn">
+		<input type="text" name="username" placeholder="Username" id="usn" required>
+		<input type="password" name="password" placeholder="Password"id="psw" required>
 		<div class="detail">
 			<a  href="forgotpass.jsp" >Quên mật khẩu</a>
 			<a 	href="registration.jsp">Đăng ký</a>

@@ -5,7 +5,7 @@ public class Customer extends User {
 	private String phone;
 
 	public Customer() {
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	public Customer(int idCust, String username, String password, String fullName, String address, String phone) {
@@ -41,7 +41,11 @@ public class Customer extends User {
 		this.idCust = idCust;
 		this.phone = phone;
 	}
-
+	public Customer(String username, String password, String fullName,String gender, String phone, String address ) {
+		super(username, password, fullName, address,gender);
+//		this.idCust = idCust;
+		this.phone = phone;
+	}
 	public int getIdCust() {
 		return idCust;
 	}
@@ -57,5 +61,6 @@ public class Customer extends User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
 
 }

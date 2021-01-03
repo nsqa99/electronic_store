@@ -36,7 +36,6 @@ public class User {
 		this.fullName = fullName;
 		this.address = address;
 		this.gender = gender;
-		this.dob = dob;
 	}
 
 	public String getGender() {
@@ -86,5 +85,6 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 
 }

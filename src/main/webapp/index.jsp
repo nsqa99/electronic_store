@@ -1,3 +1,4 @@
+<%@page import="ltweb.electronic_store.utils.CookieUtils"%>
 <%@page import="ltweb.electronic_store.contants.Settings"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +12,10 @@
 
 </head>
 <body>
+	<%
+			HttpSession ss = request.getSession();
+			String authToken = (String) ss.getAttribute("auth-token");
+	%>
      <!-- header -->
             <!-- menu trên -->
 	        <div class="thanhxanh" >
@@ -33,14 +38,33 @@
                            <a href="giohang.jsp" class="declick" data-hienlen="giohang">
                            <i class="fa fa-shopping-cart"></i>Giỏ hàng</a>
                        </li>
-                       <li >
-                           <a href="login.jsp" class="declick" data-hienlen="dangnhap">
-                           <i class="fa fa-sign-in"></i> Đăng nhập </a>
-                       </li>
-                       <li >
-                           <a href="registration.jsp" class="declick" data-hienlen="dangki">
-                           <i class="fa fa-sign-out "></i>Đăng kí </a>
-                       </li>
+                       <%
+                       //System.out.print("token " + tokenCookie);
+                         if (!CookieUtils.isAuthenCookieAvailable(request, authToken)) {
+                       %> 
+	                       <li >
+	                           <a href="login.jsp" class="declick" data-hienlen="dangnhap">
+	                           <i class="fa fa-sign-in"></i> Đăng nhập </a>
+	                       </li>
+	                       <li >
+	                           <a href="registration.jsp" class="declick" data-hienlen="dangki">
+	                           <i class="fa fa-sign-out "></i>Đăng kí </a>
+	                       </li>
+                       <% } else { %>
+                       		<li >
+	                           <a href="#" class="declick" data-hienlen="taikhoan">
+	                           <i class="fa fa-user-o" aria-hidden="true"></i>Tài khoản</a>
+	                       	</li>
+	                       	<li >
+		                       	<form action="<%=request.getContextPath()%>/logout" method="GET">
+		                       		
+		                           <button class="btn__logout"><i class="fa fa-sign-out "></i>Đăng xuất</button>
+		                       	</form>
+	                        
+	                       </li>
+                       <% } %>
+                       
+                       
                    </ul> 
                </div>
           </div> 
