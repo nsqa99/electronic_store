@@ -1,0 +1,103 @@
+#chitietdonhang{
+    width: 100%;
+    /* border: #fb9103 solid 2px; */
+}
+#titleChitietdonhang{
+    text-align: center;
+    color: #fd7703;
+}
+#bodyChitietdonhang{
+    width: 100%;
+    /* background: #f5ecab; */
+    
+}
+.menuChitietdonhang{
+    /* background: beige;
+    color: #f78f04; */
+    font-size: 2vw;
+    margin: 2vw;
+    padding: 2vw;
+}
+.maSanpham{
+	float: left;
+	width: 20%;
+}
+.tenSanpham{
+    width: 35%;
+    float: left;
+    color: #0b44c5;
+}
+.soluongSanpham{
+    color: #0b44c5;
+    width: 20%;
+    float: left;
+}
+.giaSanpham{
+    width: 23%;
+    float: left;
+    color: #0b44c5;
+}
+#tongtienChitietdonhang{
+    width: 30%;
+    padding-top: 0vw;
+    padding-left: 70%;
+    font-size: 2.0vw;
+}
+#thongtinChitietdonhang{
+    margin-left: 7vw;
+    float: left;
+    width: 100%;
+    padding-top: 1vw;
+}
+.btChitietdonhang{
+    border-radius: 3px;
+    border-color: #779af8;
+    cursor: pointer;
+    padding: 1vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    margin: 5vw;
+    background: #6d93fc;
+}
+#ngaydat{
+    margin-top: 2vw;
+    color: #085ba5;
+    font-size: 2vw;
+}
+#ngaygiao{
+    margin-top: 2vw;
+    color: #085ba5;
+    font-size: 2vw;
+}
+#hotenkhach{
+    margin-top: 2vw;
+    color: #085ba5;
+    font-size: 2vw;
+}
+#sdt{
+    margin-top: 2vw;
+    color: #085ba5;
+    font-size: 2vw;
+}
+#diachi{
+    margin-top: 2vw;
+    color: #085ba5;
+    font-size: 2vw;
+}
+.tenSanpham1{
+    width: 35%;
+    float: left;
+    
+}
+.soluongSanpham1{
+    width: 20%;
+    float: left;
+}
+.giaSanpham1{
+    float: left;
+    width: 23%;
+}
+.maSanpham1{
+	float: left;
+	width: 20%;
+}

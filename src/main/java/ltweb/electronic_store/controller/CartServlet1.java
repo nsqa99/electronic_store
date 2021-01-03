@@ -41,9 +41,11 @@ public class CartServlet1 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("1");
 		name = "1";
-		System.out.println(name+"vvvvvvvvvvvname");
+		System.out.println(name+"name");
 		ArrayList<DetailCart> list = new ArrayList<>();
 		Client client = ClientBuilder.newClient();
+		System.out.println("111111111111");
+		
 		Response res = client.target(URLs.baseUrl + URLs.getCart + URLs.getListProduct +"?name=" + name.replace(" ", "+"))
 				.request(MediaType.APPLICATION_JSON).get();
 		System.out.println(res);

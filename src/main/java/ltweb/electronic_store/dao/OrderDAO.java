@@ -12,6 +12,8 @@ import ltweb.electronic_store.model.Customer;
 import ltweb.electronic_store.model.Order;
 import ltweb.electronic_store.utils.CustomerConverter;
 import ltweb.electronic_store.utils.DBConnect;
+import ltweb.electronic_store.utils.DetailCartConverter;
+import ltweb.electronic_store.utils.DetailOrderConverter;
 import ltweb.electronic_store.utils.OrderConverter;
 
 public class OrderDAO {
@@ -190,7 +192,8 @@ public class OrderDAO {
 			ResultSet rs = stm.executeQuery();
 			rs.next();
 			hoadon = OrderConverter.convert(rs);
-			hoadon = setHDByIDKH(hoadon.getIdCust());
+			hoadon = setHDByIDHD(hoadon);
+			System.out.println(hoadon.toString() + "hoa đon oi");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -198,6 +201,21 @@ public class OrderDAO {
 		System.out.println(hoadon.toString());
 		return hoadon;
 	}
+	
+	public Order setHDByIDHD(Order order) {
+		ArrayList<DetailOrdes> list = new ArrayList<DetailOrdes>();
+		list = getDetailByIDOrder(order.getIdOrd());
+		int total = 0;
+		int mount = 0;
+		for (int i = 0; i < list.size(); i++) {
+			mount+= list.get(i).getSoluong();
+			total += (list.get(i).getSoluong()*list.get(i).getGia());
+		}
+		order.setAmount(mount);
+		order.setTotal(total);
+		return order;
+	}
+	
 	public Customer getKHByIDHD(int ma) {
 		Customer cs = new Customer();
 		Order hoadon = new Order();
@@ -221,5 +239,25 @@ public class OrderDAO {
 		}
 		System.out.println(cs.toString());
 		return cs;
+	}
+	
+	public ArrayList<DetailOrdes> getDetailByIDOr(int ma) {
+		
+		ArrayList<DetailOrdes> list = new ArrayList<DetailOrdes>();
+		try {
+			System.out.println("ma kh 1 "+ ma);
+			PreparedStatement stm = conn.prepareStatement(Queries.GET_CHITIETHOADON_BY_IDHD);
+			stm.setInt(1, ma);
+			ResultSet rs = stm.executeQuery();
+			while(rs.next()) {
+				list.add(DetailOrderConverter.convert(rs));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 }

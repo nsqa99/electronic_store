@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.GenericType;
@@ -37,6 +38,8 @@ public class OrderServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		String name = request.getParameter("nameP");
+		HttpSession session = request.getSession();
+		String token = (String) session.getAttribute("auth-token");
 		ArrayList<Order> orders = new ArrayList<>();
 		Client client = ClientBuilder.newClient();
 		Response res = client.target(URLs.baseUrl + URLs.searchHoaDonPath + URLs.searchAllHoaDonPath)

@@ -65,9 +65,12 @@
                 <div class="dstongtien1">
                     <span><%= order.getGia()*order.getSoluong() %></span>
                 </div>
-                
-                
-                <!-- <button class="btXemchitiet"></button> -->
+                <form action="<%=request.getContextPath()%>/RatingServlet" method = "get">
+                <input type = "hidden" value = "<%= order.getIdSP() %>" name = "idProduct"/>
+                <input type = "hidden" value = "1" name = "idCustomer"/>
+                <input type = "submit" value = "Danh gia"/>
+                </form>
+                <!-- <button class="btXemchitiet"> Id customer la ton tai tren trang, ko phai lay</button> -->
                 <!-- <div class="btXemchitiet"> -->
                     
                 <% } %>

@@ -73,6 +73,12 @@
   	<description></description>
   	<servlet-class>ltweb.electronic_store.controller.DeleteAdminServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>RatingServlet</servlet-name>
+  	<display-name>RatingServlet</display-name>
+  	<description></description>
+  	<servlet-class>ltweb.electronic_store.controller.RatingServlet</servlet-class>
+  </servlet>
   
    <servlet-mapping>
   	<servlet-name>SearchServlet</servlet-name>
@@ -122,5 +128,9 @@
   <servlet-mapping>
   	<servlet-name>DeleteAdminServlet</servlet-name>
   	<url-pattern>/DeleteAdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RatingServlet</servlet-name>
+  	<url-pattern>/RatingServlet</url-pattern>
   </servlet-mapping>
 </web-app>

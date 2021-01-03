@@ -13,7 +13,6 @@ import ltweb.electronic_store.contants.Queries;
 import ltweb.electronic_store.model.Cart;
 import ltweb.electronic_store.model.Customer;
 import ltweb.electronic_store.model.DetailCart;
-import ltweb.electronic_store.model.DetailOrdes;
 import ltweb.electronic_store.model.Order;
 import ltweb.electronic_store.model.Product;
 import ltweb.electronic_store.utils.CartConverter;

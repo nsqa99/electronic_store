@@ -5,6 +5,7 @@ public class Queries {
 	public static final String DELETE = "DELETE FROM ";
 	public static final String UPDATE = "UPDATE TABLE ";
 	public static final String CONDITION = "WHERE ";
+	public static final String AND = " AND ";
 	// get all
 	public static final String GET_CUSTOMER = GET + "Khach";
 	public static final String GET_PRODUCT = GET + "Sanpham";
@@ -13,6 +14,7 @@ public class Queries {
 	public static final String GET_ADMIN = GET + "Admin";
 	public static final String GET_CHITIETHOADON = GET + "ChitietHD";
 	public static final String GET_DETAILCART = GET + "ChitietGH";
+	public static final String GET_RATING = GET + "Danhgia";
 	
 
 	public static final String GET_LAPTOP = GET + "Laptop AS lt INNER JOIN Sanpham AS sp ON lt.MaSP = sp.MaSP";
@@ -24,6 +26,7 @@ public class Queries {
 	public static final String GET_ORDER_BY_ID = GET_ORDER + " " + CONDITION + "MaHD = ?";
 	public static final String GET_HOADON_BY_IDHD = GET_ORDER + " " + CONDITION + "MaHD = ?";
 	public static final String GET_HOADON_BY_IDKH = GET_ORDER + " " + CONDITION + "MaKH = ?";
+	public static final String GET_RATING_BY_ID = GET_RATING + " " + CONDITION + "MaKH = ?" + AND + "MaSP = ?" ;
 
 	public static final String GET_CART_BY_ID = GET_CART + " " + CONDITION + "MaKH = ?";
 	public static final String GET_CHITIETHOADON_BY_IDHD = GET_CHITIETHOADON + " " + CONDITION + "MaHD = ?";
@@ -36,6 +39,7 @@ public class Queries {
 	//insert
 		public static final String INSERT_HOADON = "insert Hoadon (MaKH, Ngaylap) values"+"(?, ?)";
 		public static final String INSERT_DETAIL_ORDER = "insert ChitietHD (MaHD, MaSP, TenSP, Soluong,Gia) values"+"(?,?,?,?,?)";
+		public static final String INSERT_RATING = "insert Danhgia values"+"(?, ?, ?,?)";
 	
 
 	// pagin product
@@ -58,4 +62,8 @@ public class Queries {
 
 	// delete by id
 	public static final String DELETE_ADMIN_BY_ID = DELETE + "Admin " + CONDITION + "MaAdmin = ?";
+	
+	//update
+	public static final String UPDATE_RATING =   "update Danhgia set Star = ?,Danhgia= ? where MaKH = ? and MaSP = ? ;" ;
+			
 }

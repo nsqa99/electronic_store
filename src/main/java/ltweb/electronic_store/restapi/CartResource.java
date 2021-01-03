@@ -131,23 +131,23 @@ public class CartResource {
 		}
 	}
 //	
-//	@GET
-//	@Path("/CustomerBId")
-//	public Response getOrderByCustomer(@QueryParam("name") String name) {
-//		System.out.println("dfthgrtgdkffjgoie");
-//		int ma = Integer.parseInt(name);
-//		System.out.println(ma+" ma");
-//		Customer cus = dao.
-////		System.out.println(order.toString());
-//		if (list != null) {
-//			System.out.println("Doi tuong"+ list.toString());
-//			System.out.println(Response.ok().entity(list).build());
-//			return Response.ok().entity(list).build();
-//			
-//		} else {
-//			return Response.status(500).build();
-//		}
-//	}
+	@GET
+	@Path("/ByIDProduct")
+	public Response getProduct(@QueryParam("name") String name) {
+		System.out.println("dfthgrtgdkffjgoie");
+		int ma = Integer.parseInt(name);
+		System.out.println(ma+" ma");
+		Product pro = dao.getProductbyID(ma);
+//		System.out.println(order.toString());
+		if (pro != null) {
+			System.out.println("Doi tuong"+ pro.toString());
+			System.out.println(Response.ok().entity(pro).build());
+			return Response.ok().entity(pro).build();
+			
+		} else {
+			return Response.status(500).build();
+		}
+	}
 //	
 //	@GET
 //	@Path("/KHByHD")

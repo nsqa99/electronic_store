@@ -41,6 +41,7 @@ public class OrderResource {
 		public Response getHDByID(@QueryParam("name") String name) {
 			int ma = Integer.parseInt(name);
 			Order order = dao.getHDByIDHD(ma);
+			System.out.println(order.toString()+ "hoa don tra ve");
 			if (order != null) {
 				return Response.ok().entity(order).build();
 				
