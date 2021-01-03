@@ -13,11 +13,7 @@ public class Customer extends User {
 		this.idCust = idCust;
 		this.phone = phone;
 	}
-	public Customer(String username, String password, String fullName, String address, String phone, String gender) {
-		super(username, password, fullName, address, phone);
-		
-		this.phone = phone;
-	}
+	
 	@Override
 	public String toString() {
 		return "Customer [idCust=" + idCust + ", phone=" + phone + ", getGender()=" + getGender() + ", getUsername()="

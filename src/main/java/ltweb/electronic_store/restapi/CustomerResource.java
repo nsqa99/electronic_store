@@ -3,6 +3,7 @@ package ltweb.electronic_store.restapi;
 import java.util.ArrayList;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -10,13 +11,15 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import ltweb.electronic_store.dao.CartDAO;
+import ltweb.electronic_store.dao.CustomerDAO;
 import ltweb.electronic_store.model.DetailCart;
+import ltweb.electronic_store.model.Customer;
 
 
 @Path("/customer")
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerResource {
-	private CartDAO dao = new CartDAO();
+	private CustomerDAO dao = new CustomerDAO();
 
 	
 	@GET
@@ -45,5 +48,5 @@ public class CustomerResource {
 				 return Response.status(500).build();
 			 }
  		
-    }
+    
 }
