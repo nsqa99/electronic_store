@@ -8,6 +8,7 @@ public class URLs {
 	public static final String productPath = "/products";
 	public static final String searchPath = "/search";
 	public static final String loginPath = "/login";
+	public static final String logoutPath = "/logout";
 
 	public static final String searchHoaDonPath = "/hoadon";
 	public static final String searchAllHoaDonPath = "/Allhoadon";

@@ -10,6 +10,7 @@ import javax.ws.rs.core.Response;
 
 import ltweb.electronic_store.dao.CustomerDAO;
 import ltweb.electronic_store.model.Customer;
+import ltweb.electronic_store.utils.SecurityUtils;
 
 @Path("login")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -23,8 +24,12 @@ public class LoginResource {
 		String username = data.getString("username");
 		String password = data.getString("password");
 		c = dao.getCust(username, password);
-		return c != null ? Response.ok().entity("Login success").build()
-				: Response.status(401).entity("Unauthorized").build();
+		if (c != null) {
+			String token = SecurityUtils.createJWT(username);
+			return Response.ok().entity("Login success").header("Authorization", "Bearer" + " " + token).build();
+		}
+
+		return Response.status(401).entity("Unauthorized").build();
 	}
 
 }
