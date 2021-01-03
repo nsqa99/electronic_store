@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="ltweb.electronic_store.model.*" %>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,58 +21,47 @@
          </div>
           <div class="phai">
             <form action="#" name="myForm" method="post">
+            	<% ArrayList<Customer> customer = (ArrayList<Customer>) request.getSession().getAttribute("in4cus");
+                        		if (customer != null) {%>
+                        	<%if (customer.size() == 0) { %>
+            	        		
+            	        		<% }  else{%>
+            	        		<% 
+			        				for(Customer cus : customer) {
+			        			%>	
                 <div class="form-group">
                     <label class="nhan">Tên: </label>
-                    <input type="text" class="form-control" placeholder=" " name="Name" required="">
+                    <input type="text" class="form-control" readonly value="<%=cus.getFullName()%>" placeholder=" " name="Name" required="">
                 </div>
                 <div class="form-group">
-                    <label class="nhan">Tên đăng nhập:</label>
-                    <input type="text" class="form-control" placeholder=" " name="Username" required="">
+                    <label class="nhan">Địa chỉ:</label>
+                    <input type="text" class="form-control" readonly value="<%=cus.getAddress()%>" placeholder=" " name="Username" required="">
                 </div>
                 <div class="form-group">
-                    <label class="nhan">Email:</label>
-                    <input type="email" class="form-control"  placeholder=" " name="Email" required="">
+                    <label class="nhan">Giới tính:</label>
+                    <input type="text" class="form-control" readonly value="<%=cus.getGender()%>" placeholder=" " name="gioitinh" required="">
                 </div>
                 <div class="form-group">
                     <label class="nhan">Số điện thoại:</label>
-                    <input type="text" class="form-control" readonly value="0392737733" placeholder=" " name="SDT" required="">
+                    <input type="text" class="form-control" readonly value="<%=cus.getPhone()%>" placeholder=" " name="SDT" required="">
                 </div>
-                <div class="form-group">
-                    <label class="nhan gende">Giới tính:</label>
-                    <form>
-                        <input name="gioitinh" type="radio" value="Nam" />Nam
-                        <input name="gioitinh" type="radio" value="Nữ" />Nữ
-                        <input name="gioitinh" type="radio" value="Khác" />Khác
-                        </form>
-                </div>
-                <div class="form-group">
-                    <label class="nhan">Ngày sinh:</label>
-                    <input type="date" class="form-control" placeholder=" " name="Confirm Password" id="password2" required="">
-                </div>
-                <div class=" custom-checkbox ">
-					<input type="checkbox" class='tat' >
-                    <label class="custom-label" for="">Đổi mật khẩu</label>
-                     <div class="dehienthi">
-                    <div class="form-group">
-                        <label class="nhan">Mật khẩu cũ:</label>
-                        <input type="password" class="form-control" placeholder=" " name="Password" id="password1" required="">
-                    </div>
-                    <div class="form-group">
-                        <label class="nhan">Mật khẩu mới:</label>
-                        <input type="password" class="form-control" placeholder=" " name="Password" id="password1" required="">
-                    </div>
-                    <div class="form-group">
-                        <label class="nhan">Nhập lại mật khẩu:</label>
-                        <input type="password" class="form-control" placeholder=" " name="Confirm Password" id="password2" required="">
-                    </div>
-                </div>
-                </div>
+                
+                
+                <% } %>
+                <% } %>
+                <% } %>
+                <button class="luu" onclick="quay_lai_trang_truoc()">Về trang chủ</button>
                  <button class="luu">Cập nhật</button>
                
             </form>
 
           </div>
      </div>
+     <script>
+      function quay_lai_trang_truoc(){
+          history.back();
+      }
+  		</script>
      <script src="./Javscrips/thongtincanhan.js"></script> 
 </body>
 </html>

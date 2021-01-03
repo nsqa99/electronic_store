@@ -14,6 +14,8 @@ public class CustomerConverter {
 		String fullName = rs.getString("TenKH");
 		String address = rs.getString("Diachi");
 		String phone = rs.getString("SDT");
-		return new Customer(idCust, username, password, fullName, address, phone);
+		String gioitinh = rs.getString("Gioitinh");
+//		return new Customer(idCust, username, password, fullName, address, phone, gioitinh);
+		return new Customer(username, password, fullName, address, gioitinh, idCust, phone);
 	}
 }

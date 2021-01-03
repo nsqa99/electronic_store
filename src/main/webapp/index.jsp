@@ -53,8 +53,12 @@
 	                       </li>
                        <% } else { %>
                        		<li >
-	                           <a href="#" class="declick" data-hienlen="taikhoan">
-	                           <i class="fa fa-user-o" aria-hidden="true"></i>Tài khoản</a>
+                       			<form action="<%=request.getContextPath()%>/InforCusServlet" method="GET">
+                       			<% String username = (String) ss.getAttribute("username"); %>
+		                       		<input type="hidden" name = "cusname" value = <%=username%>>
+		                           <button class="btn__logout"><i class="fa fa-user-o "></i>Tài khoản</button>
+		                       	</form>
+	                           
 	                       	</li>
 	                       	<li >
 		                       	<form action="<%=request.getContextPath()%>/logout" method="GET">
